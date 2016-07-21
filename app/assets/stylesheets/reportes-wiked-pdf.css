@@ -1,0 +1,30 @@
+.div-izq
+{
+	float:left;
+	width: 260px;
+	padding-left: 50px;
+}
+.div-der
+{
+	float:right;
+	width: 60px;
+	padding-right: 100px;
+}
+.rojo
+{
+	color: #e74c3c;
+	font-weight: bold;
+}
+.azul
+{
+	color: #34495e;
+}
+.subrayado
+{
+	text-decoration: underline;
+	color: red;
+}
+.color-titulo
+{
+	color: #34495e;
+}

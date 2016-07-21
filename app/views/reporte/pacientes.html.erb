@@ -1,0 +1,201 @@
+<div class="container">
+	<div class="row" >
+		<div class="col-md-3">
+			Laboratorio
+		</div>
+		<div class="col-md-3">
+			Fecha Inicio
+		</div>
+		<div class="col-md-3">
+			Fecha Fin
+		</div>
+    </div>
+   <div class="row">
+   <%= form_tag "/reporte/pacientes", method: :get do %>
+        <div class="col-md-3">
+			<%= collection_select :nombre, :id, FormLaboratorio.all, :nombre, :nombre %>
+		</div>
+
+
+        <% fecha=Time.now %>
+		<div class="col-md-3">
+
+
+        <input class="form-control hasDatepicker" id="fecha_inicio" name="fecha_inicio" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+         value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' 
+         onkeyup="controlFechaKeyUp('fecha_inicio')" onchange="controlFechaOnChange('fecha_inicio')">
+
+         
+		<!--	
+            <%= date_field_tag 'fecha_inicio' %>
+        -->
+		</div>
+		<div class="col-md-3">
+        <!--
+            <%= date_field_tag 'fecha_fin' %>
+        -->
+         <input class="form-control hasDatepicker" id="fecha_fin" name="fecha_fin" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+         value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' 
+         onkeyup="controlFechaKeyUp('fecha_fin')" onchange="controlFechaOnChange('fecha_fin')">
+		</div>
+<div class="col-md-4 ">
+<%= content_tag :button, type: :submit, class: "btn btn-success" do %>
+Enviar
+<% end %>
+</div>
+<% end %>
+</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			
+		</div>
+		<div class="col-md-6">
+    <% if @grafico %>
+      <div id="chart-container2">
+        
+      </div>
+    <% else %>
+       
+    <% end %>
+		</div>
+	</div>
+ <div class="row">
+        <div class="col-md-8">
+            
+        </div>
+        <div class="col-md-2">
+            <a href="javascript:demoFromHTML1(true)" class="button">Imprimir</a>
+        </div>
+     </div>
+    <div class="row">
+         <div class="col-md-3">
+         </div>
+        <div class="col-md-7">
+        <table class="table table-striped table-hover" id="tabla">
+
+              <thead>
+                <tr>
+                <th>Laboratorio</th>
+                  <th>Fecha</th>
+                  <th>Pacientes registrados</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @reporte_mensual_pacientes.each do |item| %>
+                  <tr>
+                  <td>
+                      <%= item.laboratorio %>
+                  </td>
+                    <td>
+                        <%= item.label %>
+                    </td>
+                    <td>
+                        <%= item.value %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+	<div class="row">
+	    <div class="col-md-3">
+			
+		</div>
+		<div class="col-md-6">
+    <% if @grafico %>
+      <div id="chart-container">
+        
+      </div>
+    <% else %>
+       
+    <% end %>
+		</div>
+	</div>
+    
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  FusionCharts.ready(function () 
+  {
+  	var elArray = new Array();
+    var revenueChart = new FusionCharts(
+    {
+        type: 'doughnut2d',
+        renderAt: 'chart-container',
+        width: '450',
+        height: '450',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Porcentaje de pacientes",
+                "subCaption": "Mujeres y Hombres",
+                "numberPrefix": "Cantidad=",
+                "paletteColors": "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000",
+                "bgColor": "#ffffff",
+                "showBorder": "0",
+                "use3DLighting": "0",
+                "showShadow": "0",
+                "enableSmartLabels": "0",
+                "startingAngle": "310",
+                "showLabels": "0",
+                "showPercentValues": "1",
+                "showLegend": "1",
+                "legendShadow": "0",
+                "legendBorderAlpha": "0",
+                "defaultCenterLabel": "Total pacientes",
+                "centerLabel": " $label: $value",
+                "centerLabelBold": "1",
+                "showTooltip": "0",
+                "decimals": "0",
+                "captionFontSize": "14",
+                "subcaptionFontSize": "14",
+                "subcaptionFontBold": "0"
+            },
+            "data": retornar_array(gon.lista_pacientes)
+        }
+    }).render();
+});
+</script>
+
+<script type="text/javascript">
+  FusionCharts.ready(grafico_columna("chart-container2","Reporte mensual de pacientes","Laboratorio:"+gon.laboratorio+" Fecha Inicio:"+gon.fecha_inicio+" Fecha Final:"+gon.fecha_fin,"Meses","Cantidad de pacientes",gon.reporte_mensual_pacientes));
+</script>
+<!--
+<script type="text/javascript">
+	FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'column2d',
+        renderAt: 'chart-container2',
+        width: '500',
+        height: '300',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Reporte mensual de pacientes",
+                "subCaption": "laboratorio:"+gon.laboratorio,
+                "xAxisName": "Meses",
+                "yAxisName": "Cantidad de pacientes",
+                //Making the chart export enabled in various formats
+                "exportEnabled" :"1",
+                "numberPrefix": "",
+                "theme": "fint"
+            },
+
+            "data": retornar_array(gon.reporte_mensual_pacientes,array_meses)
+        }
+    });
+
+    revenueChart.render();
+});
+</script>
+-->
+<script type="text/javascript">
+ console.log("afdadsfa");
+    console.log(gon.query);
+</script>

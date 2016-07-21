@@ -1,0 +1,118 @@
+<%= simple_form_for(@form_malarium) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="form-inputs">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6">
+              <%= f.association :paciente,label_method: :nombres %></div>
+              <div class="col-xs-6">
+                <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h8>DATOS DEL PACIENTE</h8>
+            <%= f.input :tiene_malar_trat_antimalarico, :collection => FormMalarium::ANTECEDENTES, :label=>"Antecedentes: Ha tenido y/o ha recibido tratamiento antimalárico en el último mes" %>
+            <%= f.input :diagnostico, :collection => FormMalarium::DIAGNOSTICO, :label=>"Diagnóstico" %>
+            <%= f.input :tratami, :collection => FormMalarium::TRATAMIENTO, :label=>"Tratamiento" %>
+            <%= f.input :compl_trat, :collection => FormMalarium::COMPLETO, :label=>"Completo tratamiento" %>
+            <%= f.input :lugar_tratado, :collection => FormMalarium::LUGAR, :label=>"Lugar donde fué tratado" %>
+            <%= f.input :lug_hace_sema, :collection => FormMalarium::LUGARPROBABLE, :label=>"Dónde se encontraba hace dos semanas" %>
+            <%= f.input :ocupacion, :label=>"Ocupación" %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h9>DIAGNOSTICO</h9>
+            <%= f.input :tipo_caso, :collection => FormMalarium::TIPOCASO,:label=>"Tipo de caso" %>
+            <%= f.input :inicio_sint, :collection => FormMalarium::INISINTOMA, :label=>"Inicio de síntomas" %>
+            <%= f.input :tipo,:collection => FormMalarium::TIPOEXAMEN, :label=>"Tipo de exámen" %>
+            <%= f.input :prueba, :collection => FormMalarium::TIPOPRUEVA, :label=>"Tipo de Prueba" %>
+            <%= f.input :resultado, :collection => FormMalarium::RESULTADO %>
+            <%= f.input :densidad_paras,  :label=>"Densidad parasitaria p/ul" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h10>TRATAMIENTO</h10>
+              <%= f.input :peso %>
+              <%= f.input :trat_superv,  :collection => FormMalarium::TRATSUPER, :label=>"Tratamiento supervisado" %>
+              <%= f.input :req_trat_mal_grave,  :collection => FormMalarium::REQUIERE, :label=>"Requiere trat, malaria grave" %>
+              <%= f.input :persis_sintom, :collection => FormMalarium::PERSISTEN, :label=>"Persisten síntomas" %>
+
+                <!--
+              <%#= f.input :fecha_control %>
+              <%= f.input :fecha_control do %>
+                  <div class="input-group">
+                    <%= f.text_field :fecha_control, :class => 'form-control' %>
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                  </div>
+              <% end %> -->
+
+               <% fecha=Time.now %>
+
+                    <div class="input-group">
+                    <b>Fecha de control</b>
+                      <input class="form-control hasDatepicker" id="paciente_fecha_nacimiento" name="form_malarium[fecha_control]" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+                      value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>'>
+                      <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </div>
+                    </div>
+
+
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= f.input :firma %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>
+<script>
+    var ready;
+
+    ready = function() {
+        $("#form_malarium_fecha_control").datepicker({
+            yearRange: "-0:+0",
+            changeMonth: true,
+            changeYear: true
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+</script>

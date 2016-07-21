@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class="div-izq">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>      
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p>  
+            <strong>
+              <br>
+              MINISTERIO DE SALUD Y DEPORTES<br>
+              PROGRAMA NACIONAL DE CONTROL DE TUBERCULOSIS <br>
+              FORMULARIO N°2 MUESTRA PARA<br>
+              PROCESAMIENTO EN EL TERCER NIVEL<br>
+            </strong>
+         </p>
+  </strong>
+</div>
+<div class="div-der">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br>
+<br><br>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>Paciente:</strong> <%= @tuberculosi.paciente.nombres %><%= " " %><%= @tuberculosi.paciente.apellidos %></td>
+    <td><strong>Fecha:</strong> <%= @tuberculosi.created_at %></td>
+  </tr>
+  <tr>
+    <td><strong>Tipo Muestra:</strong> <%= @tuberculosi.tipo_de_muestra %>
+    <td><strong>Medico:</strong> <%= @tuberculosi.medico %></td>
+  </tr>
+  <tr>
+    <td><strong>Centro de salud:</strong> <%= @tuberculosi.centro_de_salud %>
+    <td><strong>Observaciones:</strong> <%= @tuberculosi.observaciones %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Razon:</strong> <%= @tuberculosi.razon %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Laboratorio:</strong>
+  <%= @tuberculosi.form_laboratorio %>
+</p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @tuberculosi.paciente.nombres %>
+</p>
+
+<p>
+  <strong>Tipo de muestra:</strong>
+  <%= @tuberculosi.tipo_de_muestra %>
+</p>
+
+<p>
+  <strong>Razon:</strong>
+  <%= @tuberculosi.razon %>
+</p>
+
+<p>
+  <strong>Medico:</strong>
+  <%= @tuberculosi.medico %>
+</p>
+
+<p>
+  <strong>Centro de salud:</strong>
+  <%= @tuberculosi.centro_de_salud %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @tuberculosi.observaciones %>
+</p>
+
+<%= link_to 'Edit', edit_tuberculosi_path(@tuberculosi) %> |
+<%= link_to 'Back', tuberculosis_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insumo_reactivo_id: 
+  form_laboratorio_id: 
+  hospital_id: 
+  nombre: MyString
+  stock: 1.5
+  detalle: MyText
+  tipo: MyString
+
+two:
+  insumo_reactivo_id: 
+  form_laboratorio_id: 
+  hospital_id: 
+  nombre: MyString
+  stock: 1.5
+  detalle: MyText
+  tipo: MyString

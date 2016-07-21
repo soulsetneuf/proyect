@@ -1,0 +1,105 @@
+<!--
+<br/><br/>
+<div class="text-center">
+  <strong>
+    INFORME ANATOMOPATOLOGICO
+  </strong>
+</div>
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br/>
+-->
+
+<div class="div-izq">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>      
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p> HOSPITAL DANIEL BRACAMONTE </p>
+         <p>POTOSI - BOLIVIA </p> 
+         <p>  
+            <strong>
+              INFORME ANATOMOPATOLOGICO
+            </strong>
+         </p>
+  </strong>
+</div>
+<div class="div-der">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br>
+<br><br>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>Nombre:</strong> <%= @biopsias_form.paciente.nombres %><%= " " %><%= @biopsias_form.paciente.apellidos %></td>
+    <td></td>
+    <td><strong>Edad:</strong> <%= Paciente.calcular_edad(@biopsias_form.paciente.fecha_nacimiento) %></td>
+  </tr>
+  <tr>
+    <td><strong>Servicio:</strong> <%= @biopsias_form.servicio %></td>
+    <td><strong>Medico solicitante:</strong> <%= @biopsias_form.medico_solicitante %> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>Diagnostico clinico:</strong>
+      <%= @biopsias_form.diag_clinico %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <strong>Datos Anatomicos:</strong>
+      <%= @biopsias_form.datos_anatom %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <strong>Datos importantes:</strong>
+      <%= @biopsias_form.datos_import %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<hr/>
+<p>
+<h3>
+  MACROSCOPICO
+</h3><br/>
+<%= @biopsias_form.macroscopico %>
+</p>
+
+<p>
+<h3>MICROSCOPICO</h3><br/>  <%= @biopsias_form.microscopico %>
+</p>
+
+<p>
+<h3>DIAGNOSTICO</h3><br/><%= @biopsias_form.diagnostico %>
+</p>
+<hr/>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>Dr.</strong> <%= @biopsias_form.dr %></td>
+    <td></td>
+    <td></td>
+    <td width="20%"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><%= @biopsias_form.patologo %>
+      <br/>Patologo
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Potosi. </strong></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>

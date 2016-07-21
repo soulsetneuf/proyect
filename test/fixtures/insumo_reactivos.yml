@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form_laboratorio_id: 
+  tipo: MyString
+  nombre: MyString
+  unidad_medida: MyString
+  cantidad: 
+  costo_unitario: 
+  costo_total: 
+  partida: MyString
+  descripcion: MyText
+
+two:
+  form_laboratorio_id: 
+  tipo: MyString
+  nombre: MyString
+  unidad_medida: MyString
+  cantidad: 
+  costo_unitario: 
+  costo_total: 
+  partida: MyString
+  descripcion: MyText

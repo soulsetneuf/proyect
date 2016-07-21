@@ -1,0 +1,39 @@
+<h1>
+  <label>Usuarios</label>
+</h1>
+<table id="tabla" class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Rol</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.rol %></td>
+        <td><%= link_to 'Ver', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: {confirm: 'Estas seguro?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<!--
+<%= link_to "Nuevo Usuario".html_safe, new_user_path, :class => 'btn btn-default', :'data-toggle' => 'tooltip', :'data-placement' => 'bottom', :'title' => "Nuevo Usuario" %>
+-->
+
+
+
+
+
+
+
+
+
+<a href="javascript:demoFromHTML1()" class="button">Imprimir</a>

@@ -1,0 +1,2 @@
+module RegistroInsumosReactivosHelper
+end

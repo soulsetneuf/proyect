@@ -1,0 +1,43 @@
+<%= simple_form_for(@inventario) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= f.association :insumo_reactivo %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.association :form_laboratorio, :label=>"Laboratorio" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.association :hospital %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :nombre %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :stock %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :detalle %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :tipo %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

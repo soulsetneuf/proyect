@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Nombre:</strong>
+  <%= @form_laboratorio.nombre %>
+</p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @form_laboratorio.paciente %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @form_laboratorio.usuario %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @form_laboratorio.hospital %>
+</p>
+
+<p>
+  <strong>Fecha Toma de Muestra:</strong>
+  <%= @form_laboratorio.fecha_toma_muestra %>
+</p>
+
+<p>
+  <strong>Fecha de Entrega:</strong>
+  <%= @form_laboratorio.fecha_entrega %>
+</p>
+
+<%= link_to 'Editar', edit_form_laboratorio_path(@form_laboratorio) %> |
+<%= link_to 'Atras', form_laboratorios_path %>

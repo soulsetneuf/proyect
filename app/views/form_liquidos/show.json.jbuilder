@@ -1,0 +1,1 @@
+json.extract! @form_liquido, :id, :paciente_id, :hospital_id, :servicio, :medico_solicitante, :diag_clinico, :datos_impot, :fun, :fup, :hormonoterapia, :radioterapia, :conclusion, :dr, :citologo, :created_at, :updated_at

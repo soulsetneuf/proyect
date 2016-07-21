@@ -1,0 +1,24 @@
+eliminacion de edad de paciente
+rails g migration remove_edad_from_paciente edad:integer
+
+----------- Creacion de provincia--------------------
+
+rails g scaffold provincia nombre:string
+rails g scaffold distrito nombre:string
+rails g scaffold area nombre:string
+rails g scaffold sector nombre:string
+rails g scaffold establecimiento nombre:string
+
+
+rails g controller configuraciones index
+
+rails g scaffold registro_insumos_reactivos estado:string insumo_reactivo:references cantidad:string personal_entregante:string pesonal_receptor:string  observaciones:text
+---------------------- agregacion de laboratorios a registros de invetarios ------------------------------
+rails g migration add_form_laboratorio_to_registro_insumos_reactivos form_laboratorio:references
+
+
+-----------------creacion de salida insumos reactivos varias de una sola vez----------------------------
+
+rails g scaffold cart
+rails g scaffold line_item insumo_reactivo:references cart:belongs_to
+rails g migration add_quantity_to_line_items quantity:integer

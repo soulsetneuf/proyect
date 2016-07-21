@@ -1,0 +1,118 @@
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div style="width: 70%;;display: inline-block" class="text-center">
+  <strong>
+    <br/>
+    MINISTERIO DE SALUD Y DEPORTES<br/>
+    PROGRAMA NACIONAL DE CONTROL DE CHAGAS<br/>
+    FORMULARIO N°2 MUESTRA PARA<br/>
+    PROCESAMIENTO EN EL TERCER NIVEL<br/>
+
+  </strong>
+</div>
+<div class="pull-right" style="width: 10%;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<table class="table table-condensed" >
+  <tbody>
+  <tr>
+    <td>SEDES:</td>
+    </p>
+    <td>MUNICIPIO:</td>
+    </p>
+    <td colspan="3">LABORATORIO DE SEGUNDO NIVEL:
+    </td>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-bordered" width="70%" cellspacing="50" cellpadding="10">
+  <tr>
+    <td><strong> FECHA:</strong></td>
+    <td>NOMBRE DEL NIÑO/A:</td>
+    <td>SEXO:</td>
+    <td>EDAD:</td>
+    <td colspan="2">MUESTRA:</td>
+    <td colspan="3">DIAG. SEROLOGICO:</td>
+    <td>CONCLUSION DIAG.:</td>
+    <td colspan="3">DIAG. DE CONFIRMACION:</td>
+    <td>CONC. PRUEBAS DE CONFIRMACION:</td>
+    <td>OBSERVACIONES:</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>P.F.</td>
+    <td>P.L.</td>
+    <td>I.C.</td>
+    <td>ELISA</td>
+    <td>HAI</td>
+    <td>&nbsp;</td>
+    <td>ELISA-RC</td>
+    <td>P-GEL</td>
+    <td>HAI</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td><%= @form_chaga.created_at %> </td>
+    <td><%= @form_chaga.paciente.nombres %><%= " " %><%= @form_chaga.paciente.apellidos %></td>
+    <td><%= @form_chaga.paciente.sexo %></td>
+    <td><%= Paciente.calcular_edad(@form_chaga.paciente.fecha_nacimiento) %></td>
+    <td> 
+        <% if @form_chaga.muestra=="PF" %>
+            X
+        <% end %>
+    </td>
+    <td>
+        <% if @form_chaga.muestra=="PL" %>
+            X
+        <% end %>
+    </td>
+    <td>
+        <% if @form_chaga.diag_serologico=="LC" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+        <% if @form_chaga.diag_serologico=="ELISA" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+        <% if @form_chaga.diag_serologico=="HAI" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+      <%= @form_chaga.conclucion_diag %>
+    </td>
+    <td>
+        <% if @form_chaga.diag_confir == "ELISA-RC" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+        <% if @form_chaga.diag_confir == "P-GEL" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+        <% if @form_chaga.diag_confir=="HAI" %>
+            X
+        <% end %> 
+    </td>
+    <td>
+      <%= @form_chaga.conclu_pueb_confir %>
+    </td>
+    <td>
+      <%= @form_chaga.observaciones %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Atras', :back %>
+
+

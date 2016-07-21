@@ -1,0 +1,160 @@
+<br>
+<br>
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div style="width: 70%;;display: inline-block" class="text-center">
+
+  <strong>
+    SOLICITUD DE ANALISIS PAP<br/>
+    MINISTERIO DE SALUD Y DEPORTES<br/>
+    HONORABLE GOBIERNO MUNICIPAL DE POTOSI<br/>
+    SERVICIO DEPARTAMENTAL DE SALUD<br/>
+    PROGRAMA NACIONAL DE SCREENING DE CANCER DE CUELLO UTERNINO<br/>
+  </strong>
+
+</div>
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>CENTRO DE SALUD:</strong> <%= @form_cancer_uterino.hospital %></td>
+    <td><strong>DISTRITO:</strong> <%= @form_cancer_uterino.hospital.distrito %></td>
+    <td><strong>AREA:</strong> <%= @form_cancer_uterino.hospital.establecimiento %></td>
+  </tr>
+  <tr>
+    <td><strong>SECTOR:</strong> <%= @form_cancer_uterino.hospital.centro_salud %></td>
+    <td colspan="2"><strong>No DE REGISTRO:</strong> <%= @form_cancer_uterino.id %></td>
+  </tr>
+  </tbody>
+
+</table>
+
+<h5><b>DATOS DEL PACIENTE</b></h5>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td colspan="3"><strong>NOMBRE:</strong> <%= @form_cancer_uterino.paciente.nombres %><%= " " %><%= @form_cancer_uterino.paciente.apellidos %></td>
+  </tr>
+  <tr>
+    <td><strong>DIRECCION:</strong> <%= @form_cancer_uterino.paciente.direccion %></td>
+    <td><strong>Fecha de Nacimiento:</strong> <%= @form_cancer_uterino.paciente.fecha_nacimiento %></td>
+    <td><strong>EDAD:</strong> <%= Paciente.calcular_edad(@form_cancer_uterino.paciente.fecha_nacimiento).to_s %></td>
+  </tr>
+
+  <tr>
+    <td colspan="3"><strong>EDAD MENARQUIA:</strong>  <%= @form_cancer_uterino.edad_menarquia %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>FECHA DE LA TOMA DE MUESTRA:</strong>  <%= @form_cancer_uterino.paciente.created_at %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>FECHA ULTIMA MENSTRUAL:</strong>  <%= @form_cancer_uterino.fecha_ult_menstruacion %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>FECHA ULTIMO PARTO:</strong>  <%= @form_cancer_uterino.fecha_ult_parto %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>FECHA DE ABORTO:</strong>  <%= @form_cancer_uterino.fecha_aborto %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>NIVEL SOCIAL:</strong>  <%= @form_cancer_uterino.nivel_social %></td>
+  </tr>
+  </tbody>
+
+</table>
+
+<table class="table table-condensed">
+  <tr>
+    <td>
+      <strong>DATOS GINECOLOGICOS</strong><br/>
+
+      <p>
+        <strong>Nro de Embarazos:</strong>
+        <%= @form_cancer_uterino.n_emabarazos %>
+      </p>
+      <strong>RADIOTERAPIA</strong><br/>
+
+      <p>
+        <strong>Nro Abortos:</strong>
+        <%= @form_cancer_uterino.n_abortos %>
+      </p>
+      <strong>
+        HISTERECTOMIA
+      </strong><br/>
+
+      <p>
+        <strong>Nro de Cesareas:</strong>
+        <%= @form_cancer_uterino.n_cesareas %>
+      </p>
+
+      <p>
+        <strong>Estado de Lactancia:</strong>
+        <%= @form_cancer_uterino.estado_lactancia ? 'SI' : 'NO' %>
+      </p>
+
+      <p>
+        <strong>Menopausia:</strong>
+        <%= @form_cancer_uterino.menopausia ? 'SI' : 'NO' %>
+      </p>
+
+      <p>
+        <strong>Embarazo:</strong>
+        <%= @form_cancer_uterino.embarazo ? 'SI' : 'NO' %>
+      </p>
+
+    </td>
+    <td><p>
+      <strong>PLANIFICACION FAMILIAR</strong><br/>
+      <%= @form_cancer_uterino.planificacion_familiar %>
+    </p>
+    </td>
+    <td><p>
+      <strong>TRATAMIENTO</strong><br/>
+      <%= @form_cancer_uterino.tratamiento %>
+    </p></td>
+  </tr>
+</table>
+
+<table class="table table-condensed">
+  <tr>
+    <td><p>
+      <strong>ASPECTO DEL CUELLO</strong><br/>
+      <%= @form_cancer_uterino.aspecto_cuello %>
+    </p></td>
+    <td><p>
+      <strong>FLUJO VAGINAL</strong><br/>
+      <%= @form_cancer_uterino.flujo_vaginal %>
+    </p>
+    </td>
+    <td><p>
+      <strong>LUGAR DE MUESTRA</strong><br/>
+      <%= @form_cancer_uterino.lugar_de_muestra %>
+    </p></td>
+  </tr>
+</table>
+
+<p>
+  <strong>1. Informacion durante la toma muestra?</strong><br/>
+  <%= @form_cancer_uterino.informacion_toma_muestra %>
+</p>
+
+<p>
+  <strong>2. Control:</strong>
+  <%= @form_cancer_uterino.control ? 'Si' : 'No' %>
+</p>
+
+<p>
+  <strong>3. Resultado ultimo "PAP"y Fecha</strong>
+  <%= @form_cancer_uterino.fecha_entrega %>
+</p>
+
+<p>
+  <strong>4. Responsable de la forma de muestra nombre, apellido y sello</strong>
+</p>
+
+<p>
+  <strong>NOTA.-</strong>La informacion qe anote sera de capital importancia para la paciente Gracias!
+</p>

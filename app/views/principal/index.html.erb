@@ -1,0 +1,32 @@
+
+<h1 class="text-center">Hospital Daniel Bracamonte</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Seleccionar hospital</h3>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        Hospitales
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <% Hospital.all.each do |h| %>
+            <li role="presentation">
+              <%= link_to "#{h.nombre}", "?hospital=#{h.id}" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <%= image_tag "Hospital.jpg" %>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  body{
+    background-image: url("Hospital.jpg");
+  
+  }
+</style>

@@ -1,0 +1,135 @@
+<%= simple_form_for(@hospital) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.input :nombre %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :sigla %>
+            </div>
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-9">
+                  <%= f.input :image_file, :label => "Logo", :as => :file %>
+                </div>
+                <div class=" thumbnail col-md-2">
+                  <% if :logo != nil && @hospital.logo.present? %>
+                      <%= image_tag("/hospitales/#{@hospital.logo}", :alt => "Image", :class => 'img-polaroid') %>
+                  <% else %>
+                      <%= image_tag "images.jpg" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-12">
+                    <!-- <%= f.input :ciudad %> -->
+ <div class="form-group string required hospital_ciudad">
+           <label class="string required control-label" for="hospital_ciudad"><abbr title="requerido">*</abbr> Ciudad
+           </label>
+           <div>
+            <select class="string required form-control"
+            id="hospital_ciudad" name="hospital[ciudad]" 
+            onchange="cargar_provincias()">
+              <option value="">
+                </option>
+                <option value="La Paz">
+                  La Paz
+                </option>
+                <option value="Chuquisaca">
+                  Chuquisaca
+                </option>
+                <option value="Cochabamba">
+                  Cochabamba
+                </option>   
+                <option value="Oruro">
+                  Oruro
+                </option> 
+                <option value="Potosi">
+                  Potosi
+                </option> 
+                <option value="Tarija">
+                  Tarija
+                </option> 
+                <option value="Santa Cruz">
+                  Santa Cruz
+                </option> 
+                <option value="Beni">
+                  Beni
+                </option> 
+                <option value="Pando">
+                  Pando
+                </option> 
+              </select>
+           </div>
+           </div>
+
+            </div>
+            <div class="col-md-3">  
+              <div class="form-group string optional hospital_provincia">
+                  <label class="string optional control-label" for="hospital_provincia">Provincia</label>
+              <div>
+              <select class="string required form-control" id="provincia" name="hospital[provincia]" onchange="cargar_municipios()">
+              </select>
+              </div>
+              </div>
+
+             <!-- <%= f.input :provincia %> -->
+            </div>
+            <div class="col-md-3">
+              <!-- <%= f.input :distrito %> -->
+
+              <div class="form-group string optional hospital_distrito"><label class="string optional control-label" for="hospital_distrito">Distrito</label>
+              <div>
+              <select class="string required form-control" style="width: 150px" id="municipios" name="hospital[distrito]" onchange="cargar_centros_salud()">
+               </select>
+              </div></div>
+
+            </div>
+            <div class="col-md-3">
+            <!--
+              <%= f.input :centro_salud, :label => "centro de salud" %> -->
+
+              <div class="form-group string optional hospital_centro_salud"><label class="string optional control-label" for="hospital_centro_salud">centro de salud</label>
+              <div>
+              <select class="string required form-control" style="width: 150px" id="centros_salud" name="hospital[centro_salud]" onchange="comunidad()">
+              </select>
+              </div>
+            </div>
+            </div>
+             <div class="col-md-3">
+            <!--
+              <%= f.input :establecimiento %>
+            -->
+            <div class="form-group string optional hospital_establecimiento"><label class="string optional control-label" for="hospital_establecimiento">Establecimiento</label><div>
+              <select class="string required form-control" style="width: 150px" id="comunidades" name="hospital[establecimiento]">
+              </select>
+            </div>
+            </div>
+            </div>            
+            </div>
+          <div class="row">
+           <div class="col-md-3">
+              <%= f.input :direccion, :label => "Dirección" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :descripcion, :label => "Descripción" %>
+            </div>
+          
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

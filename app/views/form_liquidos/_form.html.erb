@@ -1,0 +1,71 @@
+<%= simple_form_for(@form_liquido) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+            <%= f.association :paciente,label_method: :nombres %></div>
+            <div class="col-xs-6">
+             <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :servicio %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :medico_solicitante, :label=>"Médico solicitante" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :diag_clinico, :label=>"Diagnóstico clínico" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :datos_impot, :label=>"Datos de importancia" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :fun, :label=>"FUN" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :fup, :label=>"FUP" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :hormonoterapia %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :radioterapia %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">.<%= f.input :conclusion, :label=>"Conclusión" %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6">.<%= f.input :dr %></div>
+          <div class="col-xs-6">.<%= f.input :citologo, :label=>"Citólogo" %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

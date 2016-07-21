@@ -1,0 +1,22 @@
+<p id="notice"><%= alert %></p>
+
+<%= simple_form_for(@insumo_reactivo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <!-- <%= f.association :form_laboratorio, :label=>"Laboratorio" %> -->
+    <%= f.association :form_laboratorio, label_method: :nombre, :as => :collection_select, collection: FormLaboratorio.where("nombre<>'Todos'"), :label => "Laboratorio" %>
+    <%= f.input :tipo %>
+    <%= f.input :nombre %>
+    <%= f.input :unidad_medida, :label=>"Unidad de medida" %>
+    <%= f.input :cantidad %>
+    <%= f.input :costo_unitario %>
+    <%= f.input :costo_total %>
+    <%= f.input :partida %>
+    <%= f.input :descripcion, :label=>"Descripción" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

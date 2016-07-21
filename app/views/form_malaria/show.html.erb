@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<div class="pull-left" style="width: 10%;display: inline-block" xmlns="http://www.w3.org/1999/html">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+
+<div class="text-center">
+  <strong>
+    UNIDAD DE EPIDEMIOLOGIA PROGRAMA NACIONAL</p>
+      DE VIGILANCIA Y CONTROL DE LA MALARIA </p>
+      FORMULARIO DE REGISTRO INDIVIDUAL PARA LA MALARIA </p></p></p></p></p>
+  </strong>
+</div>
+
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+
+<h5><b>DATOS DEL FUNCIONARIO DONDE OPERA O TRABAJA</b></h5>
+<table class="table table-condensed">
+  <tbody>
+    <tr>
+    <td>Localidad:</td>
+    <td>Municipio:</td>
+    <td>Area:</td>
+  </tr>
+  </tbody>
+</table>
+
+<h5><b>DATOS DEL PACIENTE</b></h5>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td >Paciente:<%= @form_malarium.paciente.nombres %></td>
+    <td >Hospital:<%= @form_malarium.hospital %></td>
+  </tr>
+    <tr>
+    <td colspan="4">Antecedentes: Ha tenido malaria y/o harecibido tratamiento antimalarico en el mes: <%= @form_malarium.tiene_malar_trat_antimalarico %></td>
+  </tr>
+   <tr>
+    <td>Diagnostico: <%= @form_malarium.diagnostico %></td>
+    <td>Tratamiento: <%= @form_malarium.tratami %></td>
+    <td>Completo tratamiento: <%= @form_malarium.compl_trat %></td>
+    <td colspan="2">Lugar donde fue tratado:   <%= @form_malarium.lugar_tratado %></td>
+  </tr>
+  <tr>
+    <td>Lugar probable de infeccion. donde se encontraba hace dos semanas: <%= @form_malarium.lug_hace_sema %></td>
+    <td>Ocupacion: <%= @form_malarium.ocupacion %></td>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-condensed">
+  <tbody>
+  <h5><b>DIAGNOSTICO</b></h5>
+  <tr>
+    <td>tipo de Caso: <%= @form_malarium.tipo_caso %></td>
+    <td>Inicio de Sintomas:   <%= @form_malarium.inicio_sint %></td>
+    <td>Tipo de examen:     <%= @form_malarium.tipo %></td>
+  </tr>
+  </tbody>
+  </table>
+
+  <h8><b>GOTA GRUESA/PRUEBA RAPIDA</b></h8>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td>Tipo de prueba: <%= @form_malarium.prueba %></td>
+    <td>Resultado: <%= @form_malarium.resultado %></td>
+    <td>Densidad prasitaria: <%= @form_malarium.densidad_paras %></td>
+  </tr>
+  </tbody>
+  </table>
+
+  <h5><b>TRATAMIENTO</b></h5>
+<table class="table table-condensed">
+  <tbody>
+<tr>
+    <td>Peso:<%= @form_malarium.peso %></td>
+    <td>Tratamiento supervisado:<%= @form_malarium.trat_superv %></td>
+    <td colspan="3">Requiere trat. malaria grave: <%= @form_malarium.req_trat_mal_grave %></td>
+  </tr>
+  <tr>
+    <td>Persisten sintomas:<%= @form_malarium.persis_sintom %></td>
+    <td>Fecha control:<%= @form_malarium.fecha_control %></td>
+    <td>Requiere trat. malaria grave: <%= @form_malarium.req_trat_mal_grave %></td>
+  </tr>
+  <tr>
+    <td>Firma:<%= @form_malarium.firma %></td>
+
+  </tr>
+
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_form_malarium_path(@form_malarium) %> |
+<%= link_to 'Atras', form_malaria_path %>

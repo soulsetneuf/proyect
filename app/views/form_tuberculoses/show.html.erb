@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @form_tuberculose.paciente %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @form_tuberculose.hospital %>
+</p>
+
+<%= link_to 'Editar', edit_form_tuberculose_path(@form_tuberculose) %> |
+<%= link_to 'Atras', form_tuberculoses_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @diagnostico.paciente %>
+</p>
+
+<p>
+  <strong>Nro de Diagnostico:</strong>
+  <%= @diagnostico.n_diagnostico %>
+</p>
+
+<p>
+  <strong>Despcripcion:</strong>
+  <%= @diagnostico.despcripcion %>
+</p>
+
+<p>
+  <strong>Tipo de Diagnostico:</strong>
+  <%= @diagnostico.tipo_diagnostico %>
+</p>
+
+<%= link_to 'Editar', edit_diagnostico_path(@diagnostico) %> |
+<%= link_to 'Atras', diagnosticos_path %>

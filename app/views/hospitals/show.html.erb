@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @hospital.nombre %>
+</p>
+
+<p>
+  <strong>Sigla:</strong>
+  <%= @hospital.sigla %>
+</p>
+
+<p>
+  <strong>Provincia:</strong>
+  <%= @hospital.provincia %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @hospital.ciudad %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @hospital.direccion %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+<div class="thumbnail" style="width: 150px">
+  <% if @hospital.logo.present? %>
+      <%= image_tag("/hospitales/#{@hospital.logo}", :alt => "Image", :class => 'image_logo img-polaroid') %>
+  <% else %>
+      <%= image_tag "images.jpg" %>
+  <% end %>
+</div>
+</p>
+
+<p>
+  <strong>Distrito:</strong>
+  <%= @hospital.distrito %>
+</p>
+
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @hospital.establecimiento %>
+</p>
+
+<p>
+  <strong>Centro salud:</strong>
+  <%= @hospital.centro_salud %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @hospital.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_hospital_path(@hospital) %> |
+<%= link_to 'Atras', hospitals_path %>

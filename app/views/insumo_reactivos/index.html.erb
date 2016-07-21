@@ -1,0 +1,63 @@
+<h1>Registro de Insumos y Reactivos</h1>
+<div class="pull-right">
+  <%= link_to "Nuevo Registro de entradas y salidas", new_registro_insumos_reactivo_path, :class => 'btn btn-default'%>
+</div>
+<a href="javascript:demoFromHTML1()" class="button">Imprimir</a>
+
+<table class="table table-striped table-hover" id="tabla">
+
+  <thead>
+    <tr>
+      <th>Laboratorios</th>
+      <th>Tipo</th>
+      <th>Nombre</th>
+      <th>Unidad medida</th>
+      <th >Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @insumo_reactivos.each do |insumo_reactivo| %>
+      <% if insumo_reactivo.nombre != "Todos" %>
+        <tr>
+          <td><%= insumo_reactivo.form_laboratorio %></td>
+          <td><%= insumo_reactivo.tipo %></td>
+          <td><%= insumo_reactivo.nombre %></td>
+          <td><%= insumo_reactivo.unidad_medida %></td>
+          <td class="text-right"><%= insumo_reactivo.cantidad %></td>
+          <td><%= link_to 'Ver', insumo_reactivo %></td>
+          <td><%= link_to 'Editar', edit_insumo_reactivo_path(insumo_reactivo) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Insumo reactivo', new_insumo_reactivo_path, :class=> "btn" %>
+
+<div id="imprecion" style="color: white">
+<h1><label>Reporte insumos y reaccivos</label></h1>
+<table id="exportPDF" border="0" style="border-collapse: collapse;">
+    <tr>
+      <th>Laboratorios</th>
+      <th>Tipo</th>
+      <th>Nombre</th>
+      <th>Unidad medida</th>
+      <th >Cantidad</th>
+    </tr>
+    <% @insumo_reactivos.each do |insumo_reactivo| %>
+          <tr>
+            <td><%= insumo_reactivo.form_laboratorio %></td>
+            <td><%= insumo_reactivo.tipo %></td>
+            <td><%= insumo_reactivo.nombre %></td>
+            <td><%= insumo_reactivo.unidad_medida %></td>
+            <td><%= insumo_reactivo.cantidad %></td>
+          </tr>     
+    <% end %>
+</table>
+<br><br><br><br><br>
+ <h4><label>Firma encargado</label></h4>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente_id: 
+  n_diagnostico: 1
+  despcripcion: MyString
+  tipo_diagnostico: MyString
+
+two:
+  paciente_id: 
+  n_diagnostico: 1
+  despcripcion: MyString
+  tipo_diagnostico: MyString

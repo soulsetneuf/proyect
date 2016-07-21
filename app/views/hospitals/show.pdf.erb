@@ -1,0 +1,86 @@
+<div class="div-izq">
+      <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p> HOSPITAL DANIEL BRACAMONTE </p>
+         <p>POTOSI - BOLIVIA </p> 
+         <p><h2 ><span class="color-titulo subrayado">REGISTRO</span> <span class="color-titulo subrayado">HOSPITAL</span></h2></p>
+  </strong>
+</div>
+<div class="div-der">
+       <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+
+
+<br><br><br>
+<table class="table table-condensed">
+  <tr>
+    <td colspan="2">
+      <strong><span class="rojo"> Nombre:</span></strong>
+      <span class="azul">  <%= @hospital.nombre %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong><span class="rojo"> Sigla:</span></strong>
+      <span class="azul">  <%= @hospital.sigla %></span>
+    </td>
+    <td>
+      <strong><span class="rojo"> Distrito:</span></strong>
+      <span class="azul">  <%= @hospital.distrito %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong><span class="rojo"> Provincia:</span></strong>
+      <span class="azul">  <%= @hospital.provincia %></span>
+    </td>
+    <td>
+      <strong><span class="rojo"> Establecimiento:</span></strong>
+      <span class="azul">  <%= @hospital.establecimiento %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong><span class="rojo"> Ciudad:</span></strong>
+      <span class="azul">  <%= @hospital.ciudad %></span>
+    </td>
+    <td>
+      <strong><span class="rojo"> Centro salud:</span></strong>
+      <span class="azul">  <%= @hospital.centro_salud %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong><span class="rojo"> Direccion:</span></strong>
+      <span class="azul">  <%= @hospital.direccion %></span>
+    </td>
+    <td>
+      <strong><span class="rojo"> Descripcion:</span></strong>
+      <span class="azul">  <%= @hospital.descripcion %></span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <strong><span class="rojo"> Logo:</span></strong>
+        <!--
+        <div class="thumbnail">
+          <% if @hospital.logo.present? %>
+              <%= image_tag("images.jpg", :alt => "Image", :class => 'image_logo img-polaroid') %>
+          <% else %>
+              <%= image_tag "images.jpg" %>
+          <% end %>
+        </div>
+        
+
+        <%= wicked_pdf_image_tag "images.jpg", :width => '75' %>-->
+        <img src="C:\Users\usuario2\Desktop\sialabs\app\assets\images\images.jpg" class="img-rounded" alt="" width="100" height="100">
+    </td>
+  </tr>
+
+</table>

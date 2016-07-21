@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente_id: 
+  hospital_id: 
+  tiene_malar_trat_antimalarico: MyString
+  diagnostico: MyString
+  tratami: MyString
+  compl_trat: MyString
+  lugar_tratado: MyString
+  lug_hace_sema: MyString
+  ocupacion: MyString
+  tipo_caso: MyString
+  inicio_sint: MyString
+  tipo: MyString
+  prueba: MyString
+  resultado: MyString
+  densidad_paras: MyString
+  peso: MyString
+  trat_superv: MyString
+  req_trat_mal_grave: MyString
+  persis_sintom: MyString
+  fecha_control: 2014-06-04
+  firma: MyString
+
+two:
+  paciente_id: 
+  hospital_id: 
+  tiene_malar_trat_antimalarico: MyString
+  diagnostico: MyString
+  tratami: MyString
+  compl_trat: MyString
+  lugar_tratado: MyString
+  lug_hace_sema: MyString
+  ocupacion: MyString
+  tipo_caso: MyString
+  inicio_sint: MyString
+  tipo: MyString
+  prueba: MyString
+  resultado: MyString
+  densidad_paras: MyString
+  peso: MyString
+  trat_superv: MyString
+  req_trat_mal_grave: MyString
+  persis_sintom: MyString
+  fecha_control: 2014-06-04
+  firma: MyString

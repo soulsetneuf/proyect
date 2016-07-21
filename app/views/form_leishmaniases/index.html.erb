@@ -1,0 +1,63 @@
+<h1>Leishmaniasis</h1>
+
+<table class="table table-striped table-hover" id="tabla">
+  <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Hospital</th>
+      <th>Lugar Probable de Infeccion</th>
+      <th>Tipo Lesion</th>
+      <th>Ubicacion Lesion</th>
+      <th>Tiempo de Evolucion de la Lesion</th>
+      <th>Nro de Muestras Tomadas</th>
+      <th>Post Tratamiento</th>
+      <th>EPD</th>
+      <th>IDRM</th>
+      <th>CULTIVO</th>
+      <th>PCR</th>
+      <th>Otro</th>
+      <th>Medico solicitante</th>
+      <th>Firma</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @form_leishmaniases.each do |form_leishmaniase| %>
+      <tr>
+        <td><%= form_leishmaniase.paciente.nombres %></td>
+        <td><%= form_leishmaniase.hospital %></td>
+        <td><%= form_leishmaniase.lug_prob_infeccion %></td>
+        <td><%= form_leishmaniase.tipo_lesion %></td>
+        <td><%= form_leishmaniase.ubicacion_lesion %></td>
+        <td><%= form_leishmaniase.tiempo_evol_lesion %></td>
+        <td><%= form_leishmaniase.n_muestras_tom %></td>
+        <td><%= form_leishmaniase.post_tratam %></td>
+        <td><%= form_leishmaniase.epd %></td>
+        <td><%= form_leishmaniase.idrm %></td>
+        <td><%= form_leishmaniase.cultivo %></td>
+        <td><%= form_leishmaniase.pcr %></td>
+        <td><%= form_leishmaniase.otro %></td>
+        <td><%= form_leishmaniase.medico_solicitante %></td>
+        <td><%= form_leishmaniase.firma %></td>
+        <td><%= link_to 'Ver', form_leishmaniase %></td>
+        <td><%= link_to 'Editar', edit_form_leishmaniase_path(form_leishmaniase) %></td>
+        <td><%= link_to 'Eliminar', form_leishmaniase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, {:format => "pdf", :controller => "form_leishmaniases", action: "show", :id => form_leishmaniase}, :"data-toggle" => "tooltip", :"data-placement" => "bottom", :title => "Crear  Informe", :target => "_blank" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Leishmaniasis', new_form_leishmaniase_path, :class=> "btn" %>
+
+<a href="javascript:location.reload()">Mostrar historial de registro</a>
+
+<div id="chart-container"></div>
+<script type="text/javascript">
+  FusionCharts.ready(grafico_columna("chart-container","Historial de registro del ultimo año Leishmaniasis","Meses","Cantidad de pacientes registrados",gon.reporte_mensual_leishmaniases));
+</script>

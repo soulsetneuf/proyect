@@ -1,0 +1,193 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+
+    <% if current_user.rol.nombre == 'admin' %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrador <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'users' %>"><a href="/users" class="glyphicon glyphicon-list-alt"> Usuarios</a>
+            </li>
+            <li><a href="/pacientes" class="glyphicon glyphicon-list-alt"> Pacientes</a>
+            </li>
+            <li><a href="/hospitals" class="glyphicon glyphicon-list-alt"> Hospital</a></li>            
+          </ul>
+        </li>
+
+        <li class="dropdown">
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes 
+           <b class="caret"></b>
+         </a>
+
+          <ul class="dropdown-menu">
+              <li>
+                  <a href="/reporte/pacientes?utf8=✓&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-04-29&fecha_fin=1970-04-29" class="glyphicon glyphicon-list-alt"> Pacientes
+                  </a>
+             </li>
+
+              <li>
+                  <a href="/reporte/detalle_insumos_reactivos?utf8=✓&fecha_inicio=1970-01-01&fecha_fin=1970-04-22&estado=Entrada&nombre%5Bid%5D=89" class="glyphicon glyphicon-list-alt"> Insumos y reacctivos
+                  </a>
+             </li>
+            <li>
+                  <a href="/reporte/insumo_reactivos_pacientes?utf8=%E2%9C%93&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-01-01&fecha_fin=1970-05-09&nombre_insumo%5Bid%5D=89" class="glyphicon glyphicon-list-alt"> Pacientes Insumos y reacctivos
+                  </a>
+             </li>
+               <li>
+                  <a href="/reporte/hospital?utf8=%E2%9C%93&hospital%5Bid%5D=2&laboratorio%5Bnombre%5D=Biopsias&fecha_inicio=1970-01-01&fecha_fin=1970-05-13" class="glyphicon glyphicon-list-alt"> Hopitales
+                  </a>
+             </li>
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratorio de Anatomia Patologica <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'form_laboratorios' %>"><a href="/form_cancer_uterinos" class="glyphicon glyphicon-list-alt"> Resultados de Cuello de Cancer Uterino </a></li>
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratorio de Anatomia Citologica <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'form_anat_citologicas' %>"><a href="/form_anat_citologicas" class="glyphicon glyphicon-list-alt"> Resultados de Citologia </a></li>
+            <li><a href="/form_liquidos" class="glyphicon glyphicon-list-alt"> Resultados Liquidos</a></li>
+            <li><a href="/biopsias_forms" class="glyphicon glyphicon-list-alt"> Resultados Biopsias</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratorio de Tuberculosis <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'tuberculosis' %>"><a href="/tuberculosis" class="glyphicon glyphicon-list-alt"> Resultados Tuberculosis </a></li>
+            <li><a href="/baciloscopia_forms" class="glyphicon glyphicon-list-alt"> Resultados Baciloscopias</a></li>
+            <li><a href="/form_cultivos" class="glyphicon glyphicon-list-alt"> Resultados cultivos</a></li>
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratorio de Chagas <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'form_chagas' %>"><a href="/form_chagas" class="glyphicon glyphicon-list-alt"> Resultados Chagas </a></li>
+            <li><a href="/form_malaria" class="glyphicon glyphicon-list-alt" > Resultados Malaria</a></li>
+            <li><a href="/form_leishmaniases" class="glyphicon glyphicon-list-alt"> Resultados Leishmaniasis</a></li>
+            </ul>
+          </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Control de Entrada y Salida de Reactivos e Insumos <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<%= 'active' if controller_name == 'insumo_reactivos' %>"><a href="/insumo_reactivos" class="glyphicon glyphicon-list-alt"> Registro de Entradas y Salidas </a></li>
+
+            <li><a href="/registro_insumos_reactivos/index2" class="glyphicon glyphicon-list-alt"> Control de Entradas y Salidas</a></li>
+            <li><a href="/diagnosticos" >Diagnosticos</a></li>
+            </ul>
+        </li>
+
+    <% elsif current_user.rol.nombre == 'secretaria patologia' %>
+        <li><a href="/pacientes">Pacientes</a></li>
+        <hr/>
+        <li><a href="/form_cancer_uterinos">Resultados de Anatomia Patologica </a></li>
+
+        <hr/>
+        <li><a href="/diagnosticos">Diagnosticos</a></li>
+             <li class="dropdown">
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes 
+           <b class="caret"></b>
+         </a>
+
+          <ul class="dropdown-menu">
+              <li>
+                  <a href="/reporte/pacientes?utf8=✓&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-04-29&fecha_fin=1970-04-29" class="glyphicon glyphicon-list-alt"> Pacientes
+                  </a>
+             </li>
+          </ul>
+        </li>
+
+    <% elsif current_user.rol.nombre == 'secretaria citologia' %>
+        <li><a href="/pacientes">Pacientes</a></li>
+        <hr/>
+        <li><a href="/form_anat_citologicas">Resultados de Citologia</a></li>
+        <li><a href="/form_liquidos">Resultados Liquidos</a></li>
+
+        <li><a href="/biopsias_forms">Resultados Biopsias</a></li>
+        <hr/>
+
+        <li><a href="/diagnosticos">Diagnosticos</a></li>
+
+         <li class="dropdown">
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes 
+           <b class="caret"></b>
+         </a>
+
+          <ul class="dropdown-menu">
+              <li>
+                  <a href="/reporte/pacientes?utf8=✓&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-04-29&fecha_fin=1970-04-29" class="glyphicon glyphicon-list-alt"> Pacientes
+                  </a>
+             </li>
+          </ul>
+        </li>
+
+    <% elsif current_user.rol.nombre == 'secretaria vigilancia epidemolica' %>
+        <li><a href="/pacientes">Pacientes</a></li>
+        <hr/>
+        <li><a href="/form_tuberculoses">Resultados Tuberculosis</a></li>
+
+        <li><a href="/baciloscopia_forms">Resultados Baciloscopias</a></li>
+
+        <li><a href="/form_cultivos">Resultados cultivos</a></li>
+        <hr/>
+        <li><a href="/form_chagas">Resultados Chagas</a></li>
+
+        <li><a href="/form_malaria">Resultados Malaria</a></li>
+
+        <li><a href="/form_leishmaniases">Resultados Leishmaniasis</a></li>
+        <hr/>
+        <li>
+        <a href="/diagnosticos">Diagnosticos</a>
+        </li>
+
+         <li class="dropdown">
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes 
+           <b class="caret"></b>
+         </a>
+
+          <ul class="dropdown-menu">
+              <li>
+                  <a href="/reporte/pacientes?utf8=✓&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-04-29&fecha_fin=1970-04-29" class="glyphicon glyphicon-list-alt"> Pacientes
+                  </a>
+             </li>
+          </ul>
+        </li>
+
+
+    <% elsif current_user.rol.nombre == 'encargada inventarios' %>
+        <li><a href="/insumo_reactivos">Inventarios</a></li>
+        <li><a href="/registro_insumos_reactivos/index2">Control de Inventarios</a></li>
+        <li class="dropdown">
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes 
+           <b class="caret"></b>
+         </a>
+
+          <ul class="dropdown-menu">
+               <li>
+                  <a href="/reporte/detalle_insumos_reactivos?utf8=✓&fecha_inicio=1970-01-01&fecha_fin=1970-04-22&estado=Entrada&nombre%5Bid%5D=89" class="glyphicon glyphicon-list-alt"> Insumos y reacctivos
+                  </a>
+             </li>
+             <li>
+                  <a href="/reporte/insumo_reactivos_pacientes?utf8=%E2%9C%93&nombre%5Bid%5D=Biopsias&fecha_inicio=1970-01-01&fecha_fin=1970-05-09&nombre_insumo%5Bid%5D=89" class="glyphicon glyphicon-list-alt"> Pacientes Insumos y reacctivos
+                  </a>
+             </li>
+          </ul>
+        </li>
+    <% end %>
+  </ul>
+</div>

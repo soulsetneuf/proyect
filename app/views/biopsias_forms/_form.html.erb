@@ -1,0 +1,74 @@
+<%= simple_form_for(@biopsias_form) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+            <%= f.association :paciente,label_method: :nombres %></div>
+            <div class="col-xs-6">
+            <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :servicio %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :medico_solicitante, :label=>"Médico solicitante" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :diag_clinico, :label=>"Diagnóstico clínico" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :datos_anatom, :label=>"Datos anatomicos"%>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :datos_import, :label=>"Datos importantes" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :macroscopico, :label=>"Macroscópico" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :microscopico, :label=>"Microscópico" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :diagnostico, :label=>"Diagnóstico" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="form-inputs">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6">.<%= f.input :dr %></div>
+              <div class="col-xs-6">. <%= f.input :patologo,:label=>"Patólogo" %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn btn-success" %>
+      </div>
+<% end %>

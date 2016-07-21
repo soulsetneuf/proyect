@@ -1,0 +1,49 @@
+<%= simple_form_for(@form_anat_citologica) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+            <%= f.association :paciente,label_method: :nombres %>
+            </div>
+            <div class="col-xs-6">
+            <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.input :servicio %>
+            <%= f.input :cama %>
+            <%= f.input :diagnostico_clinico,:label=>"Diagnóstico Clínico" %>
+            <%= f.input :datos_anatomicos, :label=>"Datos Anatómicos" %>
+            <%= f.input :lugar_muestra %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.input :diagnostico_operatorio, :label=>"Diagnóstico Operatorio" %>
+            <%= f.input :pieza_quirurgica, :label=>"Pieza quirúrgica" %>
+            <%= f.input :biopsia %>
+            <%= f.input :otros %>
+            <%= f.input :conservante, :collection => FormAnatCitologica::CONSERVANTE %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

@@ -1,0 +1,75 @@
+<%= simple_form_for(@registro_insumos_reactivo) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-md-6">
+        <%= f.input :estado, :collection => RegistroInsumosReactivo::ESTADO, :include_blank => false,:input_html => {:onChange => 'control_ci_personal();'} %>
+        </div>
+        <div class="col-md-6">
+          <%= f.association :form_laboratorio, label_method: :nombre, :as => :collection_select, collection: FormLaboratorio.where("nombre<>'Todos'"), :label => "Laboratorio" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><%#= f.association :insumo_reactivo, :collection => InsumoReactivo.order_name %></div>
+        <div class="col-md-6"><%#= f.input :cantidad %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+          <h4>DATOS DEL PERSONAL</h4>
+
+          <div class="row">
+            <div class="col-md-11"><%= f.input :pesonal_receptor, :input_html=>{:value => (current_user.ci)} %>
+            </div>
+            <div class="col-md-11"><%= f.input :personal_entregante %></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11"><%= f.input :observaciones %></div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>
+<input type="hidden" name="current_user" id="current_user" value=<%= current_user.ci %>>
+
+<script type="text/javascript">
+  var combo_box_laboratorio=document.getElementById("registro_insumos_reactivo_form_laboratorio_id");
+  combo_box_laboratorio.disabled=true;
+  function control_ci_personal()
+  {
+   var ci_usuario_actual=document.getElementById("current_user").value;
+   var estado_entrada=document.getElementById("registro_insumos_reactivo_estado").value;
+   var personal_receptor=document.getElementById("registro_insumos_reactivo_pesonal_receptor");
+   var personal_entregante=document.getElementById("registro_insumos_reactivo_personal_entregante");
+   var combo_box_laboratorio=document.getElementById("registro_insumos_reactivo_form_laboratorio_id");
+   if (estado_entrada=="Entrada") {
+    personal_receptor.value=ci_usuario_actual;
+    personal_entregante.value="";
+    combo_box_laboratorio.disabled=true;
+    combo_box_laboratorio[0].selected=true;
+   }
+   else
+    {
+      personal_receptor.value="";
+      personal_entregante.value=ci_usuario_actual;
+      combo_box_laboratorio.disabled=false;
+    }
+  }
+</script>
+<!-- Large modal 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button> -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    Largo modall
+    ...............<br><br><br><br>
+    dsjalsjflasdkj
+    </div>
+  </div>
+</div>

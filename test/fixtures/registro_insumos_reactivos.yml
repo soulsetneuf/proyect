@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: MyString
+  insumo_reactivo_id: 
+  cantidad: MyString
+  personal_entregante: MyString
+  pesonal_receptor: MyString
+  observaciones: MyText
+
+two:
+  estado: MyString
+  insumo_reactivo_id: 
+  cantidad: MyString
+  personal_entregante: MyString
+  pesonal_receptor: MyString
+  observaciones: MyText

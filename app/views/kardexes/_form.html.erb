@@ -1,0 +1,42 @@
+<%= simple_form_for(@kardex) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :insumo_reactivo %>
+    <%#= f.input :fecha %>
+    <%= f.input :fecha do %>
+        <div class="input-group">
+          <%= f.text_field :fecha, :class => 'form-control' %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+        </div>
+    <% end %>
+    <%= f.input :reg_entrada, :label=>"Registro de entrada" %>
+    <%= f.input :reg_salida, :label=>"Registro de salida" %>
+    <%= f.input :saldo %>
+    <%= f.input :recibido_entregado %>
+    <%= f.input :observaciones %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<script>
+    var ready;
+
+    ready = function() {
+        $("#kardex_fecha").datepicker({
+            yearRange: "-0:+0",
+            changeMonth: true,
+            changeYear: true
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+
+</script>

@@ -1,0 +1,224 @@
+<% fecha=Time.now %>
+<%= simple_form_for(@form_cancer_uterino) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="col-xs-4">.
+            <%= f.association :paciente, label_method: :nombres, :as => :collection_select, collection: Paciente.where("sexo ='Femenino' and (SELECT now()::DATE -fecha_nacimiento::DATE)>=365"), :label => "Paciente" %>
+          
+            
+            <!--Usuario.where(direcions: {pais: 'Venezuela'})--></div>
+            <div class="col-xs-4">.
+            
+            <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %>
+              
+            </div>
+            <div class="col-xs-4">.<%= f.association :distrito %></div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4> DATOS DEL PACIENTE</h4>
+            <%= f.input :edad_menarquia,  :label=>"Edad de Menarquía" %>
+            <%#= f.input :fecha_ult_menstruacion, :label=>"fecha última menstruación " %>
+
+<div class="form-group date required form_cancer_uterino_fecha_ult_menstruacion"><label class="date required control-label" for="form_cancer_uterino_fecha_ult_menstruacion"><abbr title="requerido">*</abbr> fecha última menstruación</label><div>
+                <div class="input-group">
+
+                    <input class="form-control hasDatepicker" id=form_cancer_uterino_fecha_ult_menstruacion name="form_cancer_uterino[fecha_ult_menstruacion]" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+         value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>'
+          onkeyup="controlFechaKeyUp('form_cancer_uterino_fecha_ult_menstruacion')" onchange="controlFechaOnChange('form_cancer_uterino_fecha_ult_menstruacion')">
+
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+</div></div>
+
+
+
+<!--
+            <%= f.input :fecha_ult_menstruacion, :label=>"fecha última menstruación" do %>
+                <div class="input-group">
+                  <%= f.text_field :fecha_ult_menstruacion, :class => 'form-control' %>
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+            <% end %>
+
+-->
+
+            <%#= f.input :fecha_ult_parto, :label=>"Fecha último parto" %>
+
+
+
+<div class="form-group date optional form_cancer_uterino_fecha_ult_parto"><label class="date optional control-label" for="form_cancer_uterino_fecha_ult_parto">Fecha último parto</label><div>
+                <div class="input-group">
+
+
+<input class="form-control hasDatepicker" id="form_cancer_uterino_fecha_ult_parto" name="form_cancer_uterino[fecha_ult_parto]" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+         value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' 
+         onkeyup="controlFechaKeyUp('form_cancer_uterino_fecha_ult_parto')" onchange="controlFechaOnChange('form_cancer_uterino_fecha_ult_parto')">
+
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+</div></div>
+
+<!--
+            <%= f.input :fecha_ult_parto, :label=>"Fecha último parto"  do %>
+                <div class="input-group">
+                  <%= f.text_field :fecha_ult_parto, :class => 'form-control' %>
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+            <% end %>
+-->
+
+
+<div class="form-group date optional form_cancer_uterino_fecha_aborto"><label class="date optional control-label" for="form_cancer_uterino_fecha_aborto">Fecha aborto</label><div>
+                <div class="input-group">
+
+
+
+<input class="form-control hasDatepicker" id="form_cancer_uterino_fecha_aborto" name="form_cancer_uterino[fecha_aborto]" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+         value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>'
+         onkeyup="controlFechaKeyUp('form_cancer_uterino_fecha_aborto')" onchange="controlFechaOnChange('form_cancer_uterino_fecha_aborto')">
+
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+</div></div>
+
+
+<!--
+            <%#= f.input :fecha_aborto %>
+            <%= f.input :fecha_aborto do %>
+                <div class="input-group">
+                  <%= f.text_field :fecha_aborto, :class => 'form-control' %>
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+            <% end %>
+-->
+
+
+
+            <%= f.input :nivel_social, :collection => FormCancerUterino::NIVELSOCIAL %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4> DATOS GINECOLÓGICOS</h4>
+              <%= f.input :n_emabarazos, :collection => FormCancerUterino::EMBARAZOS, :label=>"Nro de embarazos" %>
+              <h4>RADIOTERAPIA</h4>
+              <%= f.input :n_abortos, :collection => FormCancerUterino::ABORTOS, :label=>"Nro de abortos" %>
+              <h4>HISTERECTOMIA</h4>
+              <%= f.input :n_cesareas, :label=>"Nro de cesáreas" %>
+              <%= f.input :estado_lactancia, :label=>"Estado de lactancia" %>
+              <%= f.input :menopausia %>
+              <%= f.input :embarazo %>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>PLANIFICACIÓN FAMILIAR</h4>
+              <%= f.input :planificacion_familiar, :collection => FormCancerUterino::PLANIFICACION, :label=>"Planificación familiar" %>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>TRATAMIENTO</h4>
+              <%= f.input :tratamiento, :collection => FormCancerUterino::Tratamiento%>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>ASPECTO DEL CUELLO</h4>
+              <%= f.input :aspecto_cuello, :collection => FormCancerUterino::ASPECTO, :label=>"Aspecto del cuello" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>FLUJO VAGINAL Y OTROS</h4>
+              <%= f.input :flujo_vaginal, :collection => FormCancerUterino::FLUJO %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>LUGAR DE LA MUESTRA</h4>
+              <%= f.input :lugar_de_muestra,  :collection => FormCancerUterino::LUGAR %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= f.input :informacion_toma_muestra, :label=>"Información clínica relevante, durante la toma de mustra" %>
+              <%= f.input :control %>
+              <%= f.input :fecha_entrega, :label=>"Resultado último PAP " %>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, :class => "btn btn-default" %>
+        </div>
+<% end %>
+
+
+<script>
+    var ready;
+
+    ready = function(){
+        $("#form_cancer_uterino_fecha_ult_menstruacion, #form_cancer_uterino_fecha_ult_parto, #form_cancer_uterino_fecha_aborto").datepicker({
+            yearRange: "-10:+0",
+            changeMonth: true,
+            changeYear: true
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+
+</script>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Insumo reactivo:</strong>
+  <%= @kardex.insumo_reactivo %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @kardex.fecha %>
+</p>
+
+<p>
+  <strong>Registro de entrada:</strong>
+  <%= @kardex.reg_entrada %>
+</p>
+
+<p>
+  <strong>Registro de salida:</strong>
+  <%= @kardex.reg_salida %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @kardex.saldo %>
+</p>
+
+<p>
+  <strong>Recibido entregado:</strong>
+  <%= @kardex.recibido_entregado %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @kardex.observaciones %>
+</p>
+
+<%= link_to 'Editar', edit_kardex_path(@kardex) %> |
+<%= link_to 'Atras', kardexes_path %>

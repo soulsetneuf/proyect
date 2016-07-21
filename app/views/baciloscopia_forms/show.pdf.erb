@@ -1,0 +1,57 @@
+<!--
+<p id="notice"><%= notice %></p>
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div style="width: 70%;;display: inline-block" class="text-center">
+  <strong>
+    SOLICITUD DE ANALISIS BACILOSCOPIA<br/>
+    MINISTERIO DE SALUD Y DEPORTES<br/>
+    HONORABLE GOBIERNO MUNICIPAL DE POTOSI<br/>
+    SERVICIO DEPARTAMENTAL DE SALUD<br/>
+  </strong>
+</div>
+<div class="pull-right" style="width: 15%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+-->
+<p id="notice"><%= notice %></p>
+<div class="div-izq">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>      
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p>  
+            <strong>
+              SOLICITUD DE ANALISIS BACILOSCOPIA<br/>
+              MINISTERIO DE SALUD Y DEPORTES<br/>
+              HONORABLE GOBIERNO MUNICIPAL DE POTOSI<br/>
+              SERVICIO DEPARTAMENTAL DE SALUD<br/>
+            </strong>
+         </p>
+  </strong>
+</div>
+<div class="div-der">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br>
+<br><br>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>Paciente:</strong> <%= @baciloscopia_form.paciente.nombres %><%= " " %><%= @baciloscopia_form.paciente.apellidos %></td>
+    <td><strong>Hospital:</strong> <%= @baciloscopia_form.hospital %></td>
+    <td><strong>Fecha:</strong> <%= @baciloscopia_form.fecha %></td>
+  </tr>
+  <tr>
+    <td><strong>Tipo de Muestra:</strong> <%= @baciloscopia_form.tipo_muestra %></td>
+    <td colspan="2"><strong>Razon de Solicitud:  <%= @baciloscopia_form.razon_solicitud %></td>
+  </tr>
+  <tr>
+    <td><strong>Lj:<%= @baciloscopia_form.l_j %></td>
+    <td colspan="2"><strong>St:  <%= @baciloscopia_form.s_t %></td>
+    <td colspan="2"><strong>Periodo:    <%= @baciloscopia_form.periodo %></td>
+  </tr>
+  </tbody>
+</table>

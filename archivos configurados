@@ -1,0 +1,95 @@
+archivos configurados
+views cancer uterino form.html.erb
+--Pacientes
+views pacientes form.html.erb Eliminar campo tipo
+observacion agregar ciudades en form nuevo
+--Hostipal
+falta validacion en blanco de ciudad distrito... etc
+--Citologia
+Cambio de campo hospital
+--Liquidos
+Cambio de campo hospital
+--Biopsias
+Cambio de campo hospital
+--Tuberculosis
+Aumentar campo hospital
+--Baciloscopia
+Cambio de campo hospital
+--Cultivos
+Cambio de campo hospital
+--Chagas 
+Cambio de campo hospital
+Cambio en el modelo chagas
+--Malaria
+Cambio de campo hospital
+Observacion lugar, donde se encontraba hace dos semanas
+--Leishmaniases
+Cambio de campo hospital
+Observacion lugar
+--Reporte detalle insumos
+agregar todos en el reporte grafico
+en aplicacion se cambio cout por sum
+--Registro insumos y reactivos
+Cambio form.html.erb
+        <%= f.association :form_laboratorio, :include_blank => false,:label=>"Laboratorio",:input_html => {:onChange => 'buscarEcargado();'} %>
+--Se agrego nuevo trigger para la tabla cultivo
+CREATE OR REPLACE FUNCTION procedure_form_cultivos() RETURNS TRIGGER AS $procedure_form_cultivos$
+  DECLARE
+  BEGIN
+  insert into historial_paciente values(NEW.paciente_id,NEW.hospital_id,13,NEW.created_at);
+  return NEW;
+  END;
+$procedure_form_cultivos$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_procedure_form_cultivos BEFORE INSERT 
+    ON form_cultivos FOR EACH ROW 
+    EXECUTE PROCEDURE procedure_form_cultivos();
+--Observacion chagas en form insertar
+No se redirecciona a index una vez hecho un registro
+--Observacion falta arreglar suma en reporte general de insumos pacientes
+--Arreglado que que los pacientes a ser registrados en cancer uterino sean de
+sexo femenino y mayores a un año
+--Observacion en show.pdf.erb la fecha de la toma de muestra es ambigua
+    <td colspan="3"><strong>FECHA DE LA TOMA DE MUESTRA:</strong>  <%= @form_cancer_uterino.paciente.created_at %></td>
+--Observacion reporte liquidos no se ve los estilos de los otros reportes
+--Observacion formulario de chagas reporte pdf falta llenar datos
+--Observacion arreglar reporte pdf malaria escudos mal colocados
+--Observacion leishmanieases no existe el dato procedencia en le reporte
+--Observacion en insumos y reactivos hacer desaparecer la opcion todos
+--Observacion arreglar reporte hospital no tiene datos
+--Se controlo en insumo y reactivo en el carrito de comprar que los insumos no 
+--sean menores a cero siempre exista un insumo
+  def add_product(product_id)
+    insumo_reactivo = InsumoReactivo.find(product_id)
+    cantidad_insumo_reactivo = insumo_reactivo.cantidad
+    #if cantidad_insumo_reactivo_cart>=cantidad_insumo_reactivo
+        current_item = line_items.find_by(insumo_reactivo_id: product_id)
+        if current_item
+          if current_item.quantity<cantidad_insumo_reactivo-1
+            current_item.quantity += 1
+          end
+        else
+          if cantidad_insumo_reactivo>0
+            current_item = line_items.build(insumo_reactivo_id: product_id)
+          end
+        end
+        current_item
+    #end
+  end
+  --En reporte falta configurar hospital logo no aparece el logo del hospital
+  --configurar a ruta absoluta el path
+  --Observacion importante en el pdf de liquidos dice informe citologico
+  --Observacion corregir la posicion de "Hospital Daniel Bracamonte" en show html de todos los --formularios, tan bien corregir la posicion del escudo de potosi en show html
+  --Form cultivos show pdf no se puede modificar de acuerdo a las especificaciones
+  --correctas del sistema, pero igual funciona aceptablemente
+  --Observacion importante en chagas show html y pdf no esta relacionado con el modelo de datos no --se esta recuperando ningun dato
+  --Observacion locatidad municipio y area no son recuperados en chagas show
+  --Observacion procedencia no se esta recuperando ni edad en show html leishmaniasis
+  --Solucionado el problema de insumos y reactivos al fin
+  registro de insumo y reactivos controller linea 45 #save_registro_insumo_reactivo
+  --Observacion importante en registro de insumos y reactivos en editar sale reportes que no tienen relacion con la actulizacion que se realiza
+  --Observacion el insumo y reactivo no tiene que decir a que reactivo pertenece
+  --No me deja hacer validaciones en la tabla insumos y reactivos afecta al registro de insumos y reactivos
+  --Justificacion de por que no hay laboratorios en reportes de insumos y reactivos solo tendria q salir reportes de salidas por que los laboratorios no tienen reporte de entradas
+  --Realizar obtimizacion, del script en insertar insumos y reactivos
+  --Observacion importante no se puede crear nuevo usuario hacerlo de la forma tradicional

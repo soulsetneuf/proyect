@@ -1,0 +1,37 @@
+<h1>Registro de Kardexes</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Insumo reactivo</th>
+      <th>Fecha</th>
+      <th>Registro entrada</th>
+      <th>Registro salida</th>
+      <th>Saldo</th>
+      <th>Recibido entregado</th>
+      <th>Observaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kardexes.each do |kardex| %>
+      <tr>
+        <td><%= kardex.insumo_reactivo %></td>
+        <td><%= kardex.fecha %></td>
+        <td><%= kardex.reg_entrada %></td>
+        <td><%= kardex.reg_salida %></td>
+        <td><%= kardex.saldo %></td>
+        <td><%= kardex.recibido_entregado %></td>
+        <td><%= kardex.observaciones %></td>
+        <td><%= link_to 'Ver', kardex %></td>
+        <td><%= link_to 'Editar', edit_kardex_path(kardex) %></td>
+        <td><%= link_to 'Eliminar', kardex, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Kardex', new_kardex_path, :class=> "btn" %>

@@ -1,0 +1,13 @@
+<% if line_item == @current_item %>
+    <tr id="current_item">
+<% else %>
+    <tr>
+<% end %>
+<td> <%#= nro %> </td>
+<td><%= line_item.insumo_reactivo.nombre %></td>
+<td><%= line_item.quantity %></td>
+<td class="item_price">
+  <%= line_item.insumo_reactivo.unidad_medida %>
+</td>
+</tr>
+<%# nro += 1 %>

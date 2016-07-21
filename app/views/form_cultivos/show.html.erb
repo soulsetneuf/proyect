@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div style="width: 70%;;display: inline-block" class="text-center">
+  <strong>
+    SOLICITUD DE ANALISIS CULTIVOS<br/>
+    MINISTERIO DE SALUD Y DEPORTES<br/>
+    HONORABLE GOBIERNO MUNICIPAL DE POTOSI<br/>
+    SERVICIO DEPARTAMENTAL DE SALUD<br/>
+  </strong>
+</div>
+<div class="pull-right" style="width: 15%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+
+
+<br><br><br>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td><strong>Paciente:</strong> <%= @form_cultivo.paciente.nombres %></td>
+    <td><strong>Hospital:</strong> <%= @form_cultivo.hospital %></td>
+    <td colspan="2"><strong>Fecha:</strong> <%= @form_cultivo.fecha %></td>
+  </tr>
+  <tr>
+    <td><strong>Tipo de Muestra:</strong> <%= @form_cultivo.tipo_muestra %></td>
+    <td colspan="2">Medico:   <%= @form_cultivo.medico %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Periodo: <%= @form_cultivo.periodo %></td>
+     </tr>
+  <tr>
+    <td><strong>Observaciones: <%= @form_cultivo.observaciones %></td>
+     </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_form_cultivo_path(@form_cultivo) %> |
+<%= link_to 'Atras', form_cultivos_path %>

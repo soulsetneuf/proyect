@@ -1,0 +1,59 @@
+<h4 class="text-center">REGISTRO DE EXISTENCIAS <br/>KARDEX FISICO</h4>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td>
+      <strong>Nombre del producto:</strong>
+      <%= @insumo_reactivo.nombre %>
+    </td>
+    <td><strong>Laboratorio:</strong>
+      <%= @insumo_reactivo.form_laboratorio %>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Cantidad:</strong>
+      <%= @insumo_reactivo.cantidad %>
+    </td>
+    <td>
+      <strong>Unidad medida:</strong>
+      <%= @insumo_reactivo.unidad_medida %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Descripcion:</strong>
+      <%= @insumo_reactivo.descripcion %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered table-condensed">
+  <thead>
+  <tr>
+    <th>Estado</th>
+    <th>Fecha</th>
+    <th>Cantidad</th>
+    <th>Personal entregante</th>
+    <th>Pesonal receptor</th>
+    <th>Observaciones</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @registro_insumos_reactivos.each do |registro_insumos_reactivo| %>
+      <tr>
+        <td>
+          <%= registro_insumos_reactivo.estado %>
+        </td>
+        <td><%= registro_insumos_reactivo.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= registro_insumos_reactivo.cantidad %></td>
+        <td><%= registro_insumos_reactivo.personal_entregante %></td>
+        <td><%= registro_insumos_reactivo.pesonal_receptor %></td>
+        <td><%= registro_insumos_reactivo.observaciones %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,21 @@
+<h1>
+  <label><%= "#{@user.email}" %></label>
+</h1>
+<hr>
+<p>
+  <strong>Ci:</strong>
+  <%= @user.ci %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Rol:</strong>
+  <%= @user.rol %>
+</p>
+
+<%= link_to "Atras".html_safe, users_path %> |
+
+<%= link_to "Editar", edit_user_path(@user), :class => 'pull-right', :'data-toggle' => 'tooltip', :'data-placement' => 'bottom', :'title' => t('editar') %>

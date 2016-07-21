@@ -1,0 +1,115 @@
+<!--
+<div class="pull-left" style="width: 10%;display: inline-block" xmlns="http://www.w3.org/1999/html">
+  <%= wicked_pdf_image_tag"bolivia_escudo.png", :width => '75' %>
+</div>
+
+<div class="text-center">
+  <strong>
+    FICHA DE SOLICITUD DE ANALISIS DE LABORATORIO</p>
+    PARA LEISHMANIASIS
+  </strong>
+</div>
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+</p>
+-->
+
+<p id="notice"><%= notice %></p>
+<div class="div-izq">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>      
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p>  
+              <strong>
+                FICHA DE SOLICITUD DE ANALISIS DE LABORATORIO <br>
+                PARA LEISHMANIASIS
+              </strong>
+         </p>
+  </strong>
+</div>
+<div class="div-der">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br>
+<br><br>
+
+<h5><b>DATOS GENERALES</b></h5>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td colspan="5">Nombre del centro de salud solicitante:</td>
+  </tr>
+  <tr>
+    <td>Localidad:</td>
+    <td>Provincia:</td>
+  </tr>
+  <tr>
+    <td>Municipio: <%= %></td>
+    <td>Departamento:</td>
+  </tr>
+  <tr>
+    <td>N° HC:</td>
+    <td colspan="3">Fecha:</td>
+  </tr>
+  </tbody>
+</table>
+
+<h5><b>DATOS DEL PACIENTE</b></h5>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td>Nombres y Apellidos:<%= @form_leishmaniase.paciente.nombres %><%= " " %><%= @form_leishmaniase.paciente.apellidos %></td>
+    <td>Edad: <%= Paciente.calcular_edad(@form_leishmaniase.paciente.fecha_nacimiento) %>
+      
+    </td>
+  </tr>
+  <!--
+  <tr>
+    <td colspan="3">Procedencia:<%= @form_leishmaniase %></td>
+  </tr>
+  -->
+  <tr>
+    <td colspan="3">Lugar probable de infeccion:<%= @form_leishmaniase.lug_prob_infeccion %></td>
+  </tr>
+  <tr>
+    <td colspan="3">Tipo de lesión:<%= @form_leishmaniase.tipo_lesion %></td>
+  </tr>
+  <tr>
+    <td colspan="3">Ubicacion de la lesión:<%= @form_leishmaniase.ubicacion_lesion %></td>
+  </tr>
+  <tr>
+    <td>Tiempon de evolución de la lesión:<%= @form_leishmaniase.tiempo_evol_lesion %></td>
+  </tr>
+  <tr>
+    <td>N° de muestras tomadas:<%= @form_leishmaniase.n_muestras_tom %></td>
+    <td>Post tratamiento:<%= @form_leishmaniase.post_tratam %></td>
+  </tr>
+
+  </tbody>
+</table>
+<table>
+  <h5><b>PRUEBAS DE LABORATORIO SOLICITADOS</b></h5>
+  </p>
+  <strong style="width: 50%">E.P.D.:<%= @form_leishmaniase.epd %></strong><br/>
+  <p>
+    <strong style="width: 50%">I.D.R.M.:<%= @form_leishmaniase.idrm %></strong>
+
+  </p>
+  <strong style="width: 50%">CULTIVO<%= @form_leishmaniase.cultivo %></strong><br/>
+
+  <p>
+    <strong style="width: 50%">P.C.R.:<%= @form_leishmaniase.pcr %></strong>
+  </p>
+
+  <p>
+    <strong style="width: 50%">OTRO:<%= @form_leishmaniase.otro %></strong>
+
+  </p>
+  <tr>
+    <td colspan="3">Medico solicitante:<%= @form_leishmaniase.medico_solicitante %></td>
+    <td colspan="3">Firma: <%= @form_leishmaniase.firma %></td>
+  </tr>
+</table>

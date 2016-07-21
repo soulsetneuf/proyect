@@ -1,0 +1,27 @@
+<% unless cart.line_items.empty? %>
+
+    <table class="table table-condensed">
+      <h2>Salidas/Entradas</h2>
+      <%= button_to 'Vaciar', @cart, method: :delete, data: {confirm: 'Esta seguro?'}, :class => 'btn btn-default' %>
+
+      <thead>
+       <th>Nro</th>
+       <th>Nombre</th>
+       <th>Cantidad</th>
+       <th>Unidad</th>
+       </thead>
+      <% nro = 1 %>
+      <%= render :partial=> @cart.line_items, :local=>{:nro => nro} %>
+      <tr class="total_line">
+        <td colspan="2">Total</td>
+        <td class="total_cell"><%= @cart.total_price %></td>
+    </table>
+    <hr>
+    <div>
+      <% @registro_insumos_reactivo = RegistroInsumosReactivo.new %>
+      <%= render 'registro_insumos_reactivos/form' %>
+    </div>
+
+<% end %>
+
+

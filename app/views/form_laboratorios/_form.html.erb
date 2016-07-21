@@ -1,0 +1,24 @@
+<%= simple_form_for(@form_laboratorio) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">.<%= f.association :paciente %></div>
+            <div class="col-xs-6">.<%= f.association :hospital %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= f.input :nombre %>
+
+    <%= f.input :fecha_toma_muestra, :label=>"Fecha de toma de muestra" %>
+    <%= f.input :fecha_entrega %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

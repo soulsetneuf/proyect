@@ -1,0 +1,18 @@
+<%= simple_form_for(@tuberculosi) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  <div class="form-group select optional tuberculosi_form_laboratorio"><label class="select optional control-label" for="tuberculosi_form_laboratorio_id">Laboratorio</label><div><select class="select optional form-control" id="tuberculosi_form_laboratorio_id" name="tuberculosi[form_laboratorio_id]"><option value=""></option>
+<option value="8">Tuberculosis</option></select></div></div>
+    <%= f.association :paciente,label_method: :nombres %>
+    <%= f.input :tipo_de_muestra %>
+    <%= f.input :razon %>
+    <%= f.input :medico %>
+    <%= f.input :centro_de_salud %>
+    <%= f.input :observaciones %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

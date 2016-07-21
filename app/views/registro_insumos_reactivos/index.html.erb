@@ -1,0 +1,40 @@
+<h1>Control de insumos/reactivos</h1>
+
+<table class="table table-striped table-hover" id="tabla">
+  <thead>
+  <tr>
+    <th>Estado</th>
+    <th>Insumo reactivo</th>
+    <th>Cantidad</th>
+    <th>Personal entregante</th>
+    <th>Pesonal receptor</th>
+    <th>Observaciones</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @registro_insumos_reactivos.each do |registro_insumos_reactivo| %>
+      <tr>
+        <td>
+          <div class="btn" style="background: #ffffff; color: #000000">
+            <span class="glyphicon glyphicon-arrow-<%= registro_insumos_reactivo.estado == 'Entrada' ? 'down fg-emerald' : 'up fg-red' %>"></span>
+            <%= registro_insumos_reactivo.estado %>
+          </div>
+        </td>
+        <td><%= registro_insumos_reactivo.insumo_reactivo %></td>
+        <td><%= registro_insumos_reactivo.cantidad %></td>
+        <td><%= registro_insumos_reactivo.personal_entregante %></td>
+        <td><%= registro_insumos_reactivo.pesonal_receptor %></td>
+        <td><%= registro_insumos_reactivo.observaciones %></td>
+        <td><%= link_to 'Show', registro_insumos_reactivo %></td>
+        <td><%#= link_to 'Edit', edit_registro_insumos_reactivo_path(registro_insumos_reactivo) %></td>
+        <td><%#= link_to 'Destroy', registro_insumos_reactivo, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Registro  de insumos/reactivo', new_registro_insumos_reactivo_path %>

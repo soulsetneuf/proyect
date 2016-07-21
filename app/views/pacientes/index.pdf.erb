@@ -1,0 +1,34 @@
+<h1> Pacientes</h1>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Form laboratorio</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Fecha nacimiento</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>Direccion</th>
+    <th>Ciudad</th>
+    <th>Telefono</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @pacientes.each do |paciente| %>
+      <tr>
+
+        <td><%= paciente.form_laboratorio %></td>
+        <td><%= paciente.nombres %></td>
+        <td><%= paciente.apellidos %></td>
+        <td><%= paciente.fecha_nacimiento %></td>
+        <td><%= Paciente.calcular_edad(paciente.fecha_nacimiento).to_s %></td>
+        <td><%= paciente.sexo %></td>
+        <td><%= paciente.direccion %></td>
+        <td><%= paciente.ciudad %></td>
+        <td><%= paciente.telefono %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+

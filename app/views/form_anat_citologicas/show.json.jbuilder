@@ -1,0 +1,1 @@
+json.extract! @form_anat_citologica, :id, :paciente_id, :hospital_id, :servicio, :cama, :diagnostico_clinico, :datos_anatomicos, :lugar_muestra, :diagnostico_operatorio, :pieza_quirurgica, :biopsia, :otros, :conservante, :fecha_entrega, :hospital_id, :created_at, :updated_at

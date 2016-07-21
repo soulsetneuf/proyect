@@ -1,0 +1,49 @@
+<h1> Pacientes</h1>
+
+<table  id="tabla" class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Laboratorio</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Fecha nacimiento</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>Direccion</th>
+    <th>Ciudad</th>
+    <th>Telefono</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @pacientes.each do |paciente| %>
+      <tr>
+
+        <td><%= paciente.form_laboratorio %></td>
+        <td><%= paciente.nombres %></td>
+        <td><%= paciente.apellidos %></td>
+        <td><%= paciente.fecha_nacimiento %></td>
+        <td><%= Paciente.calcular_edad(paciente.fecha_nacimiento).to_s %></td>
+        <td><%= paciente.sexo %></td>
+        <td><%= paciente.direccion %></td>
+        <td><%= paciente.ciudad %></td>
+        <td><%= paciente.telefono %></td>
+        <td><%= link_to 'Ver', paciente %></td>
+        <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
+        <td><%= link_to 'Eliminar', paciente, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td>
+          <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, {:format => "pdf", :controller => "pacientes", action: "show", :id => paciente}, :"data-toggle" => "tooltip", :"data-placement" => "bottom", :title => "Crear  Informe", :target => "_blank" %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Paciente', new_paciente_path, :class=> "btn" %>
+<%= link_to '<i class="glyphicon glyphicon-file"></i>'.html_safe, {controller: :pacientes, :action => "index", :format => :pdf}, :class=> "btn", :"data-toggle" => "tooltip", :"data-placement" => "top", :title => "Crear Reporte de Pacientes" %>
+
+<a href="javascript:demoFromHTML1()" class="button">Imprimir</a>

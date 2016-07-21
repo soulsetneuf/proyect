@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Insumo reactivo:</strong>
+  <%= @inventario.insumo_reactivo %>
+</p>
+
+<p>
+  <strong>Form laboratorio:</strong>
+  <%= @inventario.form_laboratorio %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @inventario.hospital %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @inventario.nombre %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @inventario.stock %>
+</p>
+
+<p>
+  <strong>Detalle:</strong>
+  <%= @inventario.detalle %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @inventario.tipo %>
+</p>
+
+<%= link_to 'Editar', edit_inventario_path(@inventario) %> |
+<%= link_to 'Atras', inventarios_path %>

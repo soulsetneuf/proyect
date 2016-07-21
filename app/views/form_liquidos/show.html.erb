@@ -1,0 +1,75 @@
+
+<div class="pull-left text-center" style="width: 20%">
+  Hospital Daniel Bracamonte
+  <br/>Potosi - Bolivia
+</div><br/><br/>
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+<div class="text-center">
+  <strong>
+    INFORME CITOLOGICO
+  </strong>
+</div>
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br/>
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td>Nombre: <%= @form_liquido.paciente.nombres %></td>
+    <td></td>
+    <td>Edad: <%= Paciente.calcular_edad(@form_liquido.paciente.fecha_nacimiento) %></td>
+  </tr>
+  <tr>
+    <td>Servicio: <%= @form_liquido.servicio %></td>
+    <td colspan="3">Medico solicitante: <%= @form_liquido.medico_solicitante %></td>
+  </tr>
+  <tr>
+    <td colspan="3">Diagnóstico Clinico: <%= @form_liquido.diag_clinico %></td>
+  </tr>
+  <tr>
+    <td colspan="3">Datos de Importancia: <%= @form_liquido.datos_impot %></td>
+  </tr>
+  <tr>
+    <td>FUN:  <%= @form_liquido.fun %></td>
+    <td>FUP: <%= @form_liquido.fup %></td>
+    <td>Hormonoterapia: <%= @form_liquido.hormonoterapia %></td>
+  </tr>
+  <tr>
+    <td> &nbsp; </td>
+    <td> &nbsp; </td>
+    <td> Radioterapia: <%= @form_liquido.radioterapia %></td>
+  </tr>
+  </tbody>
+</table>
+<HR align="lefth" size="30">
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td>CONCLUSION:<br/>  <%= @form_liquido.conclusion %>
+      <br/> <br/></td>
+  </tr>
+  </tbody>
+</table>
+<HR align="lefth" size="30">
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td> Dr.:<%= @form_liquido.dr %></td>
+    <td></td>
+    <td></td>
+    <td><%= @form_liquido.citologo %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td> Citologo</td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'Editar', edit_form_liquido_path(@form_liquido) %> |
+<%= link_to 'Atras', form_liquidos_path %>

@@ -1,0 +1,45 @@
+<h1>Liquidos</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Paciente</th>
+    <th>Hospital</th>
+    <th>Servicio</th>
+    <th>Medico solicitante</th>
+    <th>Diagnostico clinico</th>
+    <th>Datos de importancia</th>
+    <th>FUN</th>
+    <th>FUP</th>
+    <th>Hormonoterapia</th>
+    <th>Radioterapia</th>
+    <th>Conclusion</th>
+    <th>Dr</th>
+    <th>Citologo</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @form_liquidos.each do |form_liquido| %>
+      <tr>
+        <td><%= form_liquido.paciente %></td>
+        <td><%= form_liquido.hospital %></td>
+        <td><%= form_liquido.servicio %></td>
+        <td><%= form_liquido.medico_solicitante %></td>
+        <td><%= form_liquido.diag_clinico %></td>
+        <td><%= form_liquido.datos_impot %></td>
+        <td><%= form_liquido.fun %></td>
+        <td><%= form_liquido.fup %></td>
+        <td><%= form_liquido.hormonoterapia %></td>
+        <td><%= form_liquido.radioterapia %></td>
+        <td><%= form_liquido.conclusion %></td>
+        <td><%= form_liquido.dr %></td>
+        <td><%= form_liquido.citologo %></td>
+        <td><%= link_to 'Ver', form_liquido %></td>
+        <td><%= link_to 'Editar', edit_form_liquido_path(form_liquido) %></td>
+        <td><%= link_to 'Eliminar', form_liquido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+    </tbody>
+    </table>

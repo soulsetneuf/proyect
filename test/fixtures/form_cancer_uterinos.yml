@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente_id: 
+  hospital_id: 
+  fecha_ult_menstruacion: 2014-06-04
+  fecha_ult_parto: 2014-06-04
+  fecha_aborto: 2014-06-04
+  nivel_social: 1
+  n_emabarazos: 1
+  nro: 1
+  sin_tratamiento: MyString
+  n_abortos: 1
+  ritmo: MyString
+  dia_termo: 2014-06-04
+  n_cesareas: 1
+  estado_lactancia: false
+  menopausia: false
+  embarazo: false
+  ligadura_trompas: false
+  oral: false
+  depo: false
+  otros: MyText
+  criocirug_hormonal: MyText
+  aspecto_cuello: MyString
+  flujo_vaginal: MyString
+  lugar_de_muestra: MyString
+  informacion_toma_muestra: MyText
+  control: false
+  fecha_entrega: 2014-06-04 15:53:05
+
+two:
+  paciente_id: 
+  hospital_id: 
+  fecha_ult_menstruacion: 2014-06-04
+  fecha_ult_parto: 2014-06-04
+  fecha_aborto: 2014-06-04
+  nivel_social: 1
+  n_emabarazos: 1
+  nro: 1
+  sin_tratamiento: MyString
+  n_abortos: 1
+  ritmo: MyString
+  dia_termo: 2014-06-04
+  n_cesareas: 1
+  estado_lactancia: false
+  menopausia: false
+  embarazo: false
+  ligadura_trompas: false
+  oral: false
+  depo: false
+  otros: MyText
+  criocirug_hormonal: MyText
+  aspecto_cuello: MyString
+  flujo_vaginal: MyString
+  lugar_de_muestra: MyString
+  informacion_toma_muestra: MyText
+  control: false
+  fecha_entrega: 2014-06-04 15:53:05

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente_id: 
+  hospital_id: 
+  fecha: 2014-07-05
+  tipo_muestra: MyString
+  razon_solicitud: MyString
+  l_j: MyString
+  s_t: MyString
+  periodo: 2014-07-05
+
+two:
+  paciente_id: 
+  hospital_id: 
+  fecha: 2014-07-05
+  tipo_muestra: MyString
+  razon_solicitud: MyString
+  l_j: MyString
+  s_t: MyString
+  periodo: 2014-07-05

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente_id: 
+  hospital_id: 
+  servicio: MyString
+  medico_solicitante: MyString
+  diag_clinico: MyString
+  datos_impot: MyString
+  fun: MyString
+  fup: MyString
+  hormonoterapia: MyString
+  radioterapia: MyString
+  conclusion: MyText
+  dr: MyString
+  citologo: MyString
+
+two:
+  paciente_id: 
+  hospital_id: 
+  servicio: MyString
+  medico_solicitante: MyString
+  diag_clinico: MyString
+  datos_impot: MyString
+  fun: MyString
+  fup: MyString
+  hormonoterapia: MyString
+  radioterapia: MyString
+  conclusion: MyText
+  dr: MyString
+  citologo: MyString

@@ -1,0 +1,65 @@
+<%= simple_form_for(@form_leishmaniase) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="form-inputs">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6">
+              <%= f.association :paciente, label_method: :nombres %></div>
+              <div class="col-xs-6">
+              <%= f.association :hospital, label_method: :nombre, :as => :collection_select, collection: Hospital.where("nombre<>'Todos'"), :label => "Hospital" %>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h11>DATOS DEL PACIENTE</h11>
+              <%= f.input :lug_prob_infeccion, :label=>"Lugar probable de infección" %>
+              <%= f.input :tipo_lesion, :collection => FormLeishmaniasis::LESION, :label=>"Tipo de lesión" %>
+              <%= f.input :ubicacion_lesion,  :label=>"Ubicación de la lesión" %>
+              <%= f.input :tiempo_evol_lesion, :label=>"Tiempo de evolución de la lesión" %>
+              <%= f.input :n_muestras_tom,  :collection => FormLeishmaniasis::NMUESTRAS,:label=>"Nro de muestras tomadas" %>
+              <%= f.input :post_tratam, :label=>"Post tratamiento" %>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h12>PRUEBAS DE LABORATORIO SOLICITADOS</h12>
+              <%= f.input :epd, :collection => FormLeishmaniasis::EPD,:label=>"E.P.D" %>
+              <%= f.input :idrm, :collection => FormLeishmaniasis::IDRM,:label=>"I.D.R.M" %>
+              <%= f.input :cultivo, :collection => FormLeishmaniasis::CULTIVO,:label=>"CULTIVO" %>
+              <%= f.input :pcr,:collection => FormLeishmaniasis::PCR, :label=>"P.C.R" %>
+              <%= f.input :otro %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= f.input :medico_solicitante, :label=>"Médico solicitante" %>
+              <%= f.input :firma %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

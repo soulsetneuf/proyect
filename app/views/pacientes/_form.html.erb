@@ -1,0 +1,89 @@
+<%= simple_form_for(@paciente) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :nombres %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :apellidos %>
+            </div>
+           
+
+
+        <div class="col-sm-4">
+             <div class="form-group date optional paciente_fecha_nacimiento"><label class="date optional control-label" for="paciente_fecha_nacimiento">Fecha nacimiento</label><div>
+            <% fecha=Time.now %>
+
+                  <div class="input-group">
+                    <input class="form-control hasDatepicker" id="paciente_fecha_nacimiento" name="paciente[fecha_nacimiento]" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
+                    value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' onkeyup="controlFechaKeyUp('paciente_fecha_nacimiento')" onchange="controlFechaOnChange('paciente_fecha_nacimiento')">
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                  </div>
+                </div></div>    
+        </div>
+      
+
+<!--              
+            <div class="col-sm-4">
+               
+              <%= f.input :fecha_nacimiento do %>
+                  <div class="input-group">
+                    <%= f.text_field :fecha_nacimiento, :class => 'form-control' %>
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                  </div>
+              <% end %>
+              
+          </div>            
+
+-->           
+            <div class="col-sm-4">
+              <%= f.input :sexo, :collection => Paciente::SEXO %>
+            </div>
+
+            <div class="col-sm-4">
+              <%= f.input :direccion, :label=>"Dirección" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :ciudad %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.input :telefono,:label=>"Teléfono" %>
+            </div>
+             <div class="form-actions">
+              <%= f.button :submit %>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<script>
+    var ready;
+
+    ready = function() {
+        $("#paciente_fecha_nacimiento").datepicker({
+            yearRange: "-100:+0",
+            changeMonth: true,
+            changeYear: true
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+
+        $('#paciente_tipo').change(function () {
+            var opcion = $(this).val();
+            if (opcion == 'rural') {
+                $('.paciente_telefono').removeClass('hidden')
+            }
+            if (opcion == 'urbano') {
+                $('.paciente_telefono').addClass('hidden')
+            }
+        })
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+</script>

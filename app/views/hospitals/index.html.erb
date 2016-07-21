@@ -1,0 +1,36 @@
+<h1>Hospitales</h1>
+
+<% @hospitals.each do |hospital| %>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="pull-right text-right col-md-3">
+          <div class="btn-group">
+            <%= link_to '<i class="glyphicon glyphicon-list"></i>'.html_safe, hospital, :class => "btn", :title => t('ver') %>
+            <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_hospital_path(hospital), :class => "btn", :title => t('editar') %>
+            <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, hospital, method: :delete, data: {confirm: t('esta_seguro_de_eliminar')}, :class => "btn", :title => t('eliminar') %>
+            <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, {:format => "pdf", :controller => "hospitals", action: "show", :id => hospital}, :class => "btn", :"data-toggle" => "tooltip", :"data-placement" => "bottom", :title => "Crear  Informe", :target => "_blank" %>
+          </div>
+        </div>
+        <div class="">
+          <div class="thumbnail col-md-1">
+            <% if hospital.logo.present? %>
+                <%= image_tag("/hospitales/#{hospital.logo}", :alt => "Image", :class => 'image_logo img-polaroid') %>
+            <% else %>
+                <%= image_tag "images.jpg" %>
+            <% end %>
+          </div>
+          <div class="text-left col-md-8">
+            <label><%= hospital.nombre %></label><br>
+            <i class="glyphicon glyphicon-map-marker"></i><%= hospital.direccion %> - <%= hospital.provincia %>
+            - <%= hospital.ciudad %>
+            <br/>
+            <%= hospital.establecimiento %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<br>
+
+<%= link_to 'Nuevo Hospital', new_hospital_path, :class => "btn" %>

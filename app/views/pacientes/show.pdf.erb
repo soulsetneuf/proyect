@@ -1,0 +1,46 @@
+<div class="pull-left text-center" style="width: 20%">
+</div>
+
+
+<div class="div-izq">
+  <%= wicked_pdf_image_tag "bolivia_escudo.png", :width => '75' %>      
+</div>
+<div style="width: 400px;display:inline-block">
+  <strong style="text-align: center;"> 
+         <p> HOSPITAL DANIEL BRACAMONTE </p>
+         <p>POTOSI - BOLIVIA </p> 
+         <p><h2 ><span class="color-titulo subrayado">REGISTRO</span> <span class="color-titulo subrayado">PACIENTE</span></h2></p>
+  </strong>
+</div>
+<div class="div-der">
+  <%= wicked_pdf_image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+<br>
+<br><br>
+
+<table class="table table-condensed">
+  <tbody>
+
+  <tr>
+    <td colspan="2"><span class="rojo">Laboratorio:</span> <%= @paciente.form_laboratorio%> </td>
+  </tr>
+
+  <tr>
+    <td><span class="rojo">Nombre: </span>  <span class="azul"> <%= @paciente.nombres %></span></td>
+    <td><span class="rojo">Apellidos:</span>   <%= @paciente.apellidos %>    </td>
+  </tr>
+  <tr>
+    <td><span class="rojo">Fecha Nacimiento:</span>  <%= @paciente.fecha_nacimiento %></td>
+    <td><span class="rojo">Edad:</span>   <%= Paciente.calcular_edad(@paciente.fecha_nacimiento) %></td>
+  </tr>
+  <tr>
+    <td><span class="rojo">Sexo:</span>   <%= @paciente.sexo %></td>
+    <td><span class="rojo">Direccion:</span>   <%= @paciente.direccion %></td>
+  </tr>
+  <tr>
+    <td><span class="rojo">Ciudad:</span>    <%= @paciente.ciudad %></td>
+    <td><span class="rojo">Telefono:</span>      <%= @paciente.telefono %></td>
+  </tr>
+
+  </tbody>
+</table>

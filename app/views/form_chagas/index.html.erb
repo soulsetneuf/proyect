@@ -1,0 +1,54 @@
+<h1>Chagas</h1>
+
+<table class="table table-striped table-hover" id="tabla">
+  <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Hospital</th>
+      <th>Muestra</th>
+      <th>Diagnostico Serologico</th>
+      <th>Conclucion Diagnostica</th>
+      <th>Diagnostico de Confirmacion</th>
+      <th>Conclucion dePruebas de Confirmacion</th>
+      <th>Observaciones</th>
+      <th>Firma</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @form_chagas.each do |form_chaga| %>
+      <tr>
+        <td><%= form_chaga.paciente.nombres %></td>
+        <td><%= form_chaga.hospital %></td>
+        <td><%= form_chaga.muestra %></td>
+        <td><%= form_chaga.diag_serologico %></td>
+        <td><%= form_chaga.conclucion_diag %></td>
+        <td><%= form_chaga.diag_confir %></td>
+        <td><%= form_chaga.conclu_pueb_confir %></td>
+        <td><%= form_chaga.observaciones %></td>
+        <td><%= form_chaga.firma %></td>
+        <td><%= link_to 'Ver', form_chaga %></td>
+        <td><%= link_to 'Editar', edit_form_chaga_path(form_chaga) %></td>
+        <td><%= link_to 'Eliminar', form_chaga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, {:format => "pdf", :controller => "form_chagas", action: "show", :id => form_chaga}, :"data-toggle" => "tooltip", :"data-placement" => "bottom", :title => "Crear  Informe", :target => "_blank" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Chagas', new_form_chaga_path, :class=> "btn" %>
+ <a href="javascript:location.reload()">Mostrar historial de registro </a>
+<div id="chart-container"></div>
+<script type="text/javascript">
+  console.log("adfsadf");
+  console.log(gon.query);
+</script>
+<script type="text/javascript">
+  FusionCharts.ready(grafico_columna("chart-container","Historial de registro del ultimo año Chagas","Meses","Cantidad de pacientes registrados",gon.reporte_mensual_chagas));
+</script>
+

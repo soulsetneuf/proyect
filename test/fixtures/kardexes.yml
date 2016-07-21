@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insumo_reactivo_id: 
+  fecha: 2014-06-04
+  reg_entrada: 
+  reg_salida: 
+  saldo: 1.5
+  recibido_entregado: MyString
+  observaciones: MyText
+
+two:
+  insumo_reactivo_id: 
+  fecha: 2014-06-04
+  reg_entrada: 
+  reg_salida: 
+  saldo: 1.5
+  recibido_entregado: MyString
+  observaciones: MyText

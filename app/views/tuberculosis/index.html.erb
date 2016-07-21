@@ -1,0 +1,44 @@
+<h1>Tuberculosis</h1>
+
+<table class="table table-striped table-hover" id="tabla">
+  <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Hospital</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @tuberculosis.each do |tuberculosi| %>
+          <tr>
+            <td><%= tuberculosi.form_laboratorio %></td>
+            <td><%= tuberculosi.paciente.nombres %></td>
+            <td><%= tuberculosi.tipo_de_muestra %></td>
+            <td><%= tuberculosi.razon %></td>
+            <td><%= tuberculosi.medico %></td>
+            <td><%= tuberculosi.centro_de_salud %></td>
+            <td><%= tuberculosi.observaciones %></td>
+            <td><%= link_to 'Ver', tuberculosi %></td>
+            <td><%= link_to 'Editar', edit_tuberculosi_path(tuberculosi) %></td>
+            <td><%= link_to 'Eliminar', tuberculosi, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+            <td>
+          <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, {:format => "pdf", :controller => "tuberculosis", action: "show", :id => tuberculosi}, :"data-toggle" => "tooltip", :"data-placement" => "bottom", :title => "Crear  Informe", :target => "_blank" %>
+          </td>
+          </tr>
+        <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo  Formulario Tuberculosis', new_form_tuberculose_path, :class=> "btn" %>
+
+<div id="chart-container"></div>
+<script type="text/javascript">
+  console.log(gon.query);
+</script>
+<script type="text/javascript">
+  FusionCharts.ready(grafico_columna("chart-container","Historial de registro del ultimo año Tuberculosis","Meses","Cantidad de pacientes registrados",gon.reporte_mensual_tuberculoses));
+</script>

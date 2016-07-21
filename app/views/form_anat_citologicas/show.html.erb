@@ -1,0 +1,72 @@
+<div class="pull-left" style="width: 10%;display: inline-block">
+  <%= image_tag "bolivia_escudo.png", :width => '75' %>
+</div>
+
+<div class="text-center">
+  <strong>
+    SOLICITUD DE EXAMEN ANATOMOPATOLOGICO
+  </strong>
+</div>
+<div class="pull-right" style="width: 10%;;display: inline-block">
+  <%= image_tag "potosi_escudo.gif", :width => '50' %>
+</div>
+
+<table class="table table-condensed">
+  <tbody>
+  <tr>
+    <td colspan="5">Nombre Y Apellidos:  <%= @form_anat_citologica.paciente %></td>
+  </tr>
+  <tr>
+    <td>Edad: <%= Paciente.calcular_edad(@form_anat_citologica.paciente.fecha_nacimiento) %></td>
+    <td>Sexo: <%= @form_anat_citologica.paciente.sexo %></td>
+    <td colspan="3">Ocupacion: <%= "----------" %></td>
+  </tr>
+  <tr>
+    <td>Prosedencia: <%= %></td>
+    <td colspan="3">Dirección: <%= @form_anat_citologica.paciente.direccion %></td>
+  </tr>
+  <tr>
+    <td colspan="3">Medico Solicitante: <%= "----------" %></td>
+  </tr>
+  <tr>
+    <td>Servicio:  <%= @form_anat_citologica.servicio %></td>
+    <td></td>
+    <td></td>
+    <td>Cama: <%= @form_anat_citologica.cama %></td>
+  </tr>
+  <tr>
+    <td colspan="5">Diagnóstico Clínico: <%= @form_anat_citologica.diagnostico_clinico %></td>
+  </tr>
+  <tr>
+    <td colspan="5">Datos Anatómicos: <%= @form_anat_citologica.datos_anatomicos %></td>
+  </tr>
+  <tr>
+    <td colspan="5">Lugar de Muestra: <%= @form_anat_citologica.lugar_muestra %></td>
+  </tr>
+  <tr>
+    <td colspan="5">Diagnostico Operatorio: <%= @form_anat_citologica.diagnostico_operatorio %></td>
+  </tr>
+  <tr>
+    <td>Pieza Quirurgica: <%= @form_anat_citologica.pieza_quirurgica %></td>
+    <td>Biopsia: <%= @form_anat_citologica.biopsia %></td>
+    <td colspan="5">Otros: <%= @form_anat_citologica.otros %></td>
+  </tr>
+  <tr>
+    <td colspan="5">Conservante: <%= @form_anat_citologica.conservante %></td>
+  </tr>
+
+  <tr>
+    <td colspan="5">Fecha y hora de envio: <%= @form_anat_citologica.fecha_entrega %></td>
+  </tr>
+
+  </tbody>
+</table>
+<br/>
+<br/>
+<p class="text-center">
+  <i>Firma y Sello</i>
+  <br/><strong>MEDICO SOLICITANTE</strong>
+</p>
+
+<%= link_to 'Editar', edit_form_anat_citologica_path(@form_anat_citologica) %> |
+<%= link_to 'Atras', form_anat_citologicas_path %>
