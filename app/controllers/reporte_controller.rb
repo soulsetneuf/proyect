@@ -18,8 +18,32 @@ class ReporteController < ApplicationController
   	@lista_pacientes = Paciente.all
     getParemtros(params)
     @nombre_laboratorio = @laboratorio
+    f = Fecha.new
     @grafico=true
-    query="datos de da"
+    query=""
+
+    if params[:tiempo] == "Hoy"
+      @fecha_inicio = f.formatoFechaString(f.fechaActual()," 00:00:00")
+      @fecha_fin = f.formatoFechaString(f.fechaActual()," 24:00:00")
+    end
+    if params[:tiempo] == "Esta semana"
+      @fecha_inicio = f.formatoFechaString(f.estaSemana()," 00:00:00")
+      @fecha_fin = f.formatoFechaString(f.fechaActual()," 24:00:00")
+    end
+    if params[:tiempo] == "Este mes"
+      @fecha_inicio = f.formatoFechaString(f.esteMes()," 00:00:00")
+      @fecha_fin = f.formatoFechaString(f.fechaActual()," 24:00:00")
+    end
+    if params[:tiempo] == "Este año"
+      @fecha_inicio = f.formatoFechaString(f.esteAno()," 00:00:00")
+      @fecha_fin = f.formatoFechaString(f.fechaActual()," 24:00:00")
+    end 
+    if params[:tiempo] == "Todos"
+      @fecha_inicio = f.formatoFechaString(f.fechaInicial()," 00:00:00")
+      @fecha_fin = f.formatoFechaString(f.fechaActual()," 24:00:00")
+    end
+
+
     if @nombre_laboratorio == "Todos"
       query = reporteGeneralPacientes(@fecha_inicio,@fecha_fin)
       @reporte_mensual_pacientes = Paciente.find_by_sql(query)
@@ -30,7 +54,6 @@ class ReporteController < ApplicationController
       query2 = queryGrafico2(@laboratorio,@fecha_inicio,@fecha_fin)
       @lista_pacientes = Paciente.find_by_sql(query)
       @reporte_mensual_pacientes = Paciente.find_by_sql(query2)
-      gon.query = query
       gon.query = query
       gon.lista_pacientes = @lista_pacientes
       gon.reporte_mensual_pacientes = @reporte_mensual_pacientes

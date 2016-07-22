@@ -15,12 +15,33 @@
         <div class="col-md-3">
 			<%= collection_select :nombre, :id, FormLaboratorio.all, :nombre, :nombre %>
 		</div>
+    <select id="tiempo" name="tiempo">
+ <option>
+   
+ </option>
+   <option value="Hoy">
+    Hoy
+  </option>
+  <option value="Esta semana">
+    La ultima semana
+  </option>
+   <option value="Este mes">
+     Los ultimos 30 dias
+   </option>
+   <option value="Este año">
+     Este año  
+   </option>
+   <option value="Todos">
+    Desde siempre hasta a hoy
+   </option>
+   <option>
+    Intervalo personalizado
+   </option>  
+</select>
 
 
         <% fecha=Time.now %>
 		<div class="col-md-3">
-
-
         <input class="form-control hasDatepicker" id="fecha_inicio" name="fecha_inicio" type="date" max='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' min="1866-01-01"
          value='<%= fecha.strftime("%Y") + "-" + fecha.strftime("%m") + "-" + fecha.strftime("%d") %>' 
          onkeyup="controlFechaKeyUp('fecha_inicio')" onchange="controlFechaOnChange('fecha_inicio')">
